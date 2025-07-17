@@ -33,6 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FastReport, Version=2017.4.1.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL" />
+    <Reference Include="FastReport.Bars, Version=2017.4.1.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL" />
+    <Reference Include="FastReport.Editor, Version=2016.4.4.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c" />
+    <Reference Include="NPOI">
+      <HintPath>..\..\..\NPOI 2.2.1 binary package\Release\Net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\..\..\NPOI 2.2.1 binary package\Release\Net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\..\..\NPOI 2.2.1 binary package\Release\Net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -50,6 +62,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmGROUPSALESBYTA008.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGROUPSALESBYTA008.Designer.cs">
+      <DependentUpon>frmGROUPSALESBYTA008.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,13 +80,25 @@
     <Compile Include="FrmParent.Designer.cs">
       <DependentUpon>FrmParent.cs</DependentUpon>
     </Compile>
+    <Compile Include="MESSAGESHOW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MESSAGESHOW.Designer.cs">
+      <DependentUpon>MESSAGESHOW.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmGROUPSALESBYTA008.resx">
+      <DependentUpon>frmGROUPSALESBYTA008.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmParent.resx">
       <DependentUpon>FrmParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MESSAGESHOW.resx">
+      <DependentUpon>MESSAGESHOW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
