@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/12/2023 10:36:26" ReportInfo.Modified="12/12/2023 14:40:45" ReportInfo.CreatorVersion="2016.4.4.0">
+  <ScriptText>　using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpN+i5gA3VDGcwlcfm6L9ZMsLrZ3U+wEDtHCQtd9vw2XUGukuIX8JCoyprzS7xnMgu5">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="&#13;&#10;SELECT&#13;&#10;[門市]&#13;&#10;,[顧客外觀性別]&#13;&#10;,POSTB.TB010 品號&#13;&#10;,INVMB.MB002 品名&#13;&#10;,SUM(POSTB.TB019) 銷售數量&#13;&#10;,SUM(POSTB.TB031) 未稅金額&#13;&#10;FROM [TKMK].[dbo].[TBSTORESQUESTIONAIRES] WITH(NOLOCK)&#13;&#10;LEFT JOIN [TK].dbo.POSTB WITH(NOLOCK) ON TB008=[發票號碼]&#13;&#10;LEFT JOIN [TK].dbo.INVMB ON MB001=TB010&#13;&#10;WHERE 1=1&#13;&#10;AND ISNULL([發票號碼],'')&lt;&gt;''&#13;&#10;AND (TB010 LIKE '4%' OR TB010 LIKE '5%')&#13;&#10;AND CONVERT(NVARCHAR,[時間戳記],112)&gt;='20231101' AND CONVERT(NVARCHAR,[時間戳記],112)&lt;='20231201' &#13;&#10;GROUP BY [門市],[顧客外觀性別],POSTB.TB010,INVMB.MB002&#13;&#10;HAVING SUM(POSTB.TB031)&gt;0&#13;&#10;">
+        <Column Name="顧客外觀性別" DataType="System.String"/>
+        <Column Name="銷售數量" DataType="System.Decimal"/>
+        <Column Name="未稅金額" DataType="System.Decimal"/>
+        <Column Name="品號" DataType="System.String"/>
+        <Column Name="品名" DataType="System.String"/>
+        <Column Name="門市" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="Table1" DataType="System.Int32" Enabled="true" SelectCommand="&#13;&#10;SELECT&#13;&#10;[門市]&#13;&#10;,[顧客年齡區間]&#13;&#10;,POSTB.TB010 品號&#13;&#10;,INVMB.MB002 品名&#13;&#10;,SUM(POSTB.TB019) 銷售數量&#13;&#10;,SUM(POSTB.TB031) 未稅金額&#13;&#10;FROM [TKMK].[dbo].[TBSTORESQUESTIONAIRES] WITH(NOLOCK)&#13;&#10;LEFT JOIN [TK].dbo.POSTB WITH(NOLOCK) ON TB008=[發票號碼]&#13;&#10;LEFT JOIN [TK].dbo.INVMB ON MB001=TB010&#13;&#10;WHERE 1=1&#13;&#10;AND ISNULL([發票號碼],'')&lt;&gt;''&#13;&#10;AND (TB010 LIKE '4%' OR TB010 LIKE '5%')&#13;&#10;AND CONVERT(NVARCHAR,[時間戳記],112)&gt;='20231101' AND CONVERT(NVARCHAR,[時間戳記],112)&lt;='20231201' &#13;&#10;GROUP BY [門市],[顧客年齡區間],POSTB.TB010,INVMB.MB002&#13;&#10;HAVING SUM(POSTB.TB031)&gt;0&#13;&#10;">
+        <Column Name="顧客年齡區間" DataType="System.String"/>
+        <Column Name="品號" DataType="System.String"/>
+        <Column Name="品名" DataType="System.String"/>
+        <Column Name="銷售數量" DataType="System.Decimal"/>
+        <Column Name="未稅金額" DataType="System.Decimal"/>
+        <Column Name="門市" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="Table2" DataType="System.Int32" Enabled="true" SelectCommand="&#13;&#10;SELECT&#13;&#10;[門市]&#13;&#10;,[要送禮還是自己吃]&#13;&#10;,POSTB.TB010 品號&#13;&#10;,INVMB.MB002 品名&#13;&#10;,SUM(POSTB.TB019) 銷售數量&#13;&#10;,SUM(POSTB.TB031) 未稅金額&#13;&#10;FROM [TKMK].[dbo].[TBSTORESQUESTIONAIRES] WITH(NOLOCK)&#13;&#10;LEFT JOIN [TK].dbo.POSTB WITH(NOLOCK) ON TB008=[發票號碼]&#13;&#10;LEFT JOIN [TK].dbo.INVMB ON MB001=TB010&#13;&#10;WHERE 1=1&#13;&#10;AND ISNULL([發票號碼],'')&lt;&gt;''&#13;&#10;AND (TB010 LIKE '4%' OR TB010 LIKE '5%')&#13;&#10;AND CONVERT(NVARCHAR,[時間戳記],112)&gt;='20231101' AND CONVERT(NVARCHAR,[時間戳記],112)&lt;='20231201' &#13;&#10;GROUP BY [門市],[要送禮還是自己吃],POSTB.TB010,INVMB.MB002&#13;&#10;HAVING SUM(POSTB.TB031)&gt;0">
+        <Column Name="要送禮還是自己吃" DataType="System.String"/>
+        <Column Name="品號" DataType="System.String"/>
+        <Column Name="品名" DataType="System.String"/>
+        <Column Name="銷售數量" DataType="System.Decimal"/>
+        <Column Name="未稅金額" DataType="System.Decimal"/>
+        <Column Name="門市" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="Table3" DataType="System.Int32" Enabled="true" SelectCommand="&#13;&#10;SELECT&#13;&#10;[門市]&#13;&#10;,[居住地]&#13;&#10;,POSTB.TB010 品號&#13;&#10;,INVMB.MB002 品名&#13;&#10;,SUM(POSTB.TB019) 銷售數量&#13;&#10;,SUM(POSTB.TB031) 未稅金額&#13;&#10;FROM [TKMK].[dbo].[TBSTORESQUESTIONAIRES] WITH(NOLOCK)&#13;&#10;LEFT JOIN [TK].dbo.POSTB WITH(NOLOCK) ON TB008=[發票號碼]&#13;&#10;LEFT JOIN [TK].dbo.INVMB ON MB001=TB010&#13;&#10;WHERE 1=1&#13;&#10;AND ISNULL([發票號碼],'')&lt;&gt;''&#13;&#10;AND (TB010 LIKE '4%' OR TB010 LIKE '5%')&#13;&#10;AND CONVERT(NVARCHAR,[時間戳記],112)&gt;='20231101' AND CONVERT(NVARCHAR,[時間戳記],112)&lt;='20231201' &#13;&#10;GROUP BY [門市],[居住地],POSTB.TB010,INVMB.MB002&#13;&#10;HAVING SUM(POSTB.TB031)&gt;0&#13;&#10;">
+        <Column Name="居住地" DataType="System.String"/>
+        <Column Name="品號" DataType="System.String"/>
+        <Column Name="品名" DataType="System.String"/>
+        <Column Name="銷售數量" DataType="System.Decimal"/>
+        <Column Name="未稅金額" DataType="System.Decimal"/>
+        <Column Name="門市" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="Table4" DataType="System.Int32" Enabled="true" SelectCommand="&#13;&#10;SELECT&#13;&#10;[門市]&#13;&#10;,[本地居住觀光工作]&#13;&#10;,POSTB.TB010 品號&#13;&#10;,INVMB.MB002 品名&#13;&#10;,SUM(POSTB.TB019) 銷售數量&#13;&#10;,SUM(POSTB.TB031) 未稅金額&#13;&#10;FROM [TKMK].[dbo].[TBSTORESQUESTIONAIRES] WITH(NOLOCK)&#13;&#10;LEFT JOIN [TK].dbo.POSTB WITH(NOLOCK) ON TB008=[發票號碼]&#13;&#10;LEFT JOIN [TK].dbo.INVMB ON MB001=TB010&#13;&#10;WHERE 1=1&#13;&#10;AND ISNULL([發票號碼],'')&lt;&gt;''&#13;&#10;AND (TB010 LIKE '4%' OR TB010 LIKE '5%')&#13;&#10;AND CONVERT(NVARCHAR,[時間戳記],112)&gt;='20231101' AND CONVERT(NVARCHAR,[時間戳記],112)&lt;='20231201' &#13;&#10;GROUP BY [門市],[本地居住觀光工作],POSTB.TB010,INVMB.MB002&#13;&#10;HAVING SUM(POSTB.TB031)&gt;0&#13;&#10;">
+        <Column Name="本地居住觀光工作" DataType="System.String"/>
+        <Column Name="品號" DataType="System.String"/>
+        <Column Name="品名" DataType="System.String"/>
+        <Column Name="銷售數量" DataType="System.Decimal"/>
+        <Column Name="未稅金額" DataType="System.Decimal"/>
+        <Column Name="門市" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="Table5" DataType="System.Int32" Enabled="true" SelectCommand="&#13;&#10;SELECT&#13;&#10;[門市]&#13;&#10;,[顧客外觀性別]&#13;&#10;,[顧客年齡區間]&#13;&#10;,POSTB.TB010 品號&#13;&#10;,INVMB.MB002 品名&#13;&#10;,SUM(POSTB.TB019) 銷售數量&#13;&#10;,SUM(POSTB.TB031) 未稅金額&#13;&#10;FROM [TKMK].[dbo].[TBSTORESQUESTIONAIRES] WITH(NOLOCK)&#13;&#10;LEFT JOIN [TK].dbo.POSTB WITH(NOLOCK) ON TB008=[發票號碼]&#13;&#10;LEFT JOIN [TK].dbo.INVMB ON MB001=TB010&#13;&#10;WHERE 1=1&#13;&#10;AND ISNULL([發票號碼],'')&lt;&gt;''&#13;&#10;AND (TB010 LIKE '4%' OR TB010 LIKE '5%')&#13;&#10;AND CONVERT(NVARCHAR,[時間戳記],112)&gt;='20231101' AND CONVERT(NVARCHAR,[時間戳記],112)&lt;='20231201' &#13;&#10;GROUP BY [門市],[顧客外觀性別],[顧客年齡區間],POSTB.TB010,INVMB.MB002&#13;&#10;HAVING SUM(POSTB.TB031)&gt;0&#13;&#10;">
+        <Column Name="顧客外觀性別" DataType="System.String"/>
+        <Column Name="顧客年齡區間" DataType="System.String"/>
+        <Column Name="銷售數量" DataType="System.Decimal"/>
+        <Column Name="未稅金額" DataType="System.Decimal"/>
+        <Column Name="品號" DataType="System.String"/>
+        <Column Name="品名" DataType="System.String"/>
+        <Column Name="門市" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="P1" DataType="System.String"/>
+    <Parameter Name="P2" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="1000" PaperHeight="1000">
+    <ReportTitleBand Name="ReportTitle1" Width="3704.4" Height="18.9">
+      <TextObject Name="Text1" Width="444.15" Height="18.9" Text="查詢日期:[P1] ~ [P2]"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="23.5" Width="3704.4" Height="90.95">
+      <MatrixObject Name="Matrix1" Width="341.58" Height="90.95" FixedRows="3" FixedColumns="1" CellsSideBySide="true" DataSource="Table">
+        <MatrixColumns>
+          <Header Expression="[Table.門市]"/>
+          <Header Expression="[Table.顧客外觀性別]" Totals="false"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table.品名]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table.銷售數量]"/>
+          <Cell Expression="[Table.未稅金額]"/>
+        </MatrixCells>
+        <TableColumn Name="Column1" Width="83.14" AutoSize="true"/>
+        <TableColumn Name="Column2" Width="70.79" AutoSize="true"/>
+        <TableColumn Name="Column3" Width="70.79" AutoSize="true"/>
+        <TableColumn Name="Column4" Width="58.43" AutoSize="true"/>
+        <TableColumn Name="Column5" Width="58.43" AutoSize="true"/>
+        <TableRow Name="Row1" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell1" Border.Lines="All" Text="顧客外觀性別" HorzAlign="Center" VertAlign="Center" RowSpan="3"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell7"/>
+          <TableCell Name="Cell10" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center" ColSpan="2" RowSpan="2"/>
+          <TableCell Name="Cell11"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell3"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="[顧客外觀性別]" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell8"/>
+          <TableCell Name="Cell12"/>
+          <TableCell Name="Cell13"/>
+        </TableRow>
+        <TableRow Name="Row3" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell5"/>
+          <TableCell Name="Cell6" Border.Lines="All" Text="銷售數量" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell9" Border.Lines="All" Text="未稅金額" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell14" Border.Lines="All" Text="銷售數量" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell15" Border.Lines="All" Text="未稅金額" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row4" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell16" Border.Lines="All" Text="[品名]" VertAlign="Center"/>
+          <TableCell Name="Cell17" Border.Lines="All" Text="[銷售數量]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell18" Border.Lines="All" Text="[未稅金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell19" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell20" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row26" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell142" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell143" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell144" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell145" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell146" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page2" PaperWidth="1000" PaperHeight="1000">
+    <DataBand Name="Data2" Width="3704.4" Height="109.85">
+      <MatrixObject Name="Matrix2" Width="304.51" Height="90.95" FixedRows="3" FixedColumns="1" CellsSideBySide="true" DataSource="Table1">
+        <MatrixColumns>
+          <Header Expression="[Table1.門市]"/>
+          <Header Expression="[Table1.顧客年齡區間]" Totals="false"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table1.品名]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table1.銷售數量]"/>
+          <Cell Expression="[Table1.未稅金額]"/>
+        </MatrixCells>
+        <TableColumn Name="Column6" Width="46.07" AutoSize="true"/>
+        <TableColumn Name="Column7" Width="70.79" AutoSize="true"/>
+        <TableColumn Name="Column8" Width="70.79" AutoSize="true"/>
+        <TableColumn Name="Column9" Width="58.43" AutoSize="true"/>
+        <TableColumn Name="Column10" Width="58.43" AutoSize="true"/>
+        <TableRow Name="Row5" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell21" Border.Lines="All" Text="品名" HorzAlign="Center" VertAlign="Center" RowSpan="3"/>
+          <TableCell Name="Cell22" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell25"/>
+          <TableCell Name="Cell30" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center" ColSpan="2" RowSpan="2"/>
+          <TableCell Name="Cell31"/>
+        </TableRow>
+        <TableRow Name="Row6" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell23"/>
+          <TableCell Name="Cell24" Border.Lines="All" Text="[顧客年齡區間]" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell26"/>
+          <TableCell Name="Cell32"/>
+          <TableCell Name="Cell33"/>
+        </TableRow>
+        <TableRow Name="Row7" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell27"/>
+          <TableCell Name="Cell28" Border.Lines="All" Text="銷售數量" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell29" Border.Lines="All" Text="未稅金額" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell34" Border.Lines="All" Text="銷售數量" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell35" Border.Lines="All" Text="未稅金額" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row8" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell36" Border.Lines="All" Text="[品名]" VertAlign="Center"/>
+          <TableCell Name="Cell37" Border.Lines="All" Text="[銷售數量]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell38" Border.Lines="All" Text="[未稅金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell39" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell40" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row27" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell155" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell156" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell157" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell158" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell159" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page3" PaperWidth="1000" PaperHeight="1000">
+    <DataBand Name="Data3" Width="3704.4" Height="90.95">
+      <MatrixObject Name="Matrix3" Width="304.51" Height="90.95" Border.Lines="All" FixedRows="3" FixedColumns="1" CellsSideBySide="true" DataSource="Table2">
+        <MatrixColumns>
+          <Header Expression="[Table2.門市]"/>
+          <Header Expression="[Table2.要送禮還是自己吃]" Totals="false"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table2.品名]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table2.銷售數量]"/>
+          <Cell Expression="[Table2.未稅金額]"/>
+        </MatrixCells>
+        <TableColumn Name="Column11" Width="46.07" AutoSize="true"/>
+        <TableColumn Name="Column12" Width="70.79" AutoSize="true"/>
+        <TableColumn Name="Column13" Width="70.79" AutoSize="true"/>
+        <TableColumn Name="Column14" Width="58.43" AutoSize="true"/>
+        <TableColumn Name="Column15" Width="58.43" AutoSize="true"/>
+        <TableRow Name="Row9" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell41" Border.Lines="All" Text="品名" HorzAlign="Center" VertAlign="Center" RowSpan="3"/>
+          <TableCell Name="Cell42" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell45"/>
+          <TableCell Name="Cell50" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center" ColSpan="2" RowSpan="2"/>
+          <TableCell Name="Cell51"/>
+        </TableRow>
+        <TableRow Name="Row10" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell43"/>
+          <TableCell Name="Cell44" Border.Lines="All" Text="[要送禮還是自己吃]" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell46"/>
+          <TableCell Name="Cell52"/>
+          <TableCell Name="Cell53"/>
+        </TableRow>
+        <TableRow Name="Row11" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell47"/>
+          <TableCell Name="Cell48" Border.Lines="All" Text="銷售數量" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell49" Border.Lines="All" Text="未稅金額" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell54" Border.Lines="All" Text="銷售數量" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell55" Border.Lines="All" Text="未稅金額" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row12" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell56" Border.Lines="All" Text="[品名]" VertAlign="Center"/>
+          <TableCell Name="Cell57" Border.Lines="All" Text="[銷售數量]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell58" Border.Lines="All" Text="[未稅金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell59" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell60" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row28" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell168" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell169" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell170" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell171" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell172" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page4" PaperWidth="1000" PaperHeight="1000">
+    <DataBand Name="Data4" Width="3704.4" Height="100.4">
+      <MatrixObject Name="Matrix4" Width="304.51" Height="90.95" Border.Lines="All" FixedRows="3" FixedColumns="1" CellsSideBySide="true" DataSource="Table3">
+        <MatrixColumns>
+          <Header Expression="[Table3.門市]"/>
+          <Header Expression="[Table3.居住地]" Totals="false"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table3.品名]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table3.銷售數量]"/>
+          <Cell Expression="[Table3.未稅金額]"/>
+        </MatrixCells>
+        <TableColumn Name="Column16" Width="46.07" AutoSize="true"/>
+        <TableColumn Name="Column17" Width="70.79" AutoSize="true"/>
+        <TableColumn Name="Column18" Width="70.79" AutoSize="true"/>
+        <TableColumn Name="Column19" Width="58.43" AutoSize="true"/>
+        <TableColumn Name="Column20" Width="58.43" AutoSize="true"/>
+        <TableRow Name="Row13" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell61" Border.Lines="All" Text="品名" HorzAlign="Center" VertAlign="Center" RowSpan="3"/>
+          <TableCell Name="Cell62" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell65"/>
+          <TableCell Name="Cell70" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center" ColSpan="2" RowSpan="2"/>
+          <TableCell Name="Cell71"/>
+        </TableRow>
+        <TableRow Name="Row14" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell63"/>
+          <TableCell Name="Cell64" Border.Lines="All" Text="[居住地]" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell66"/>
+          <TableCell Name="Cell72"/>
+          <TableCell Name="Cell73"/>
+        </TableRow>
+        <TableRow Name="Row15" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell67"/>
+          <TableCell Name="Cell68" Border.Lines="All" Text="銷售數量" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell69" Border.Lines="All" Text="未稅金額" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell74" Border.Lines="All" Text="銷售數量" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell75" Border.Lines="All" Text="未稅金額" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row16" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell76" Border.Lines="All" Text="[品名]" VertAlign="Center"/>
+          <TableCell Name="Cell77" Border.Lines="All" Text="[銷售數量]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell78" Border.Lines="All" Text="[未稅金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell79" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell80" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row29" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell181" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell182" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell183" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell184" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell185" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page5" PaperWidth="1000" PaperHeight="1000">
+    <DataBand Name="Data5" Width="3704.4" Height="94.5">
+      <MatrixObject Name="Matrix5" Width="304.51" Height="90.95" Border.Lines="All" FixedRows="3" FixedColumns="1" CellsSideBySide="true" DataSource="Table4">
+        <MatrixColumns>
+          <Header Expression="[Table4.門市]"/>
+          <Header Expression="[Table4.本地居住觀光工作]" Totals="false"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table4.品名]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table4.銷售數量]"/>
+          <Cell Expression="[Table4.未稅金額]"/>
+        </MatrixCells>
+        <TableColumn Name="Column21" Width="46.07" AutoSize="true"/>
+        <TableColumn Name="Column22" Width="70.79" AutoSize="true"/>
+        <TableColumn Name="Column23" Width="70.79" AutoSize="true"/>
+        <TableColumn Name="Column24" Width="58.43" AutoSize="true"/>
+        <TableColumn Name="Column25" Width="58.43" AutoSize="true"/>
+        <TableRow Name="Row17" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell81" Border.Lines="All" Text="品名" HorzAlign="Center" VertAlign="Center" RowSpan="3"/>
+          <TableCell Name="Cell82" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell85"/>
+          <TableCell Name="Cell90" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center" ColSpan="2" RowSpan="2"/>
+          <TableCell Name="Cell91"/>
+        </TableRow>
+        <TableRow Name="Row18" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell83"/>
+          <TableCell Name="Cell84" Border.Lines="All" Text="[本地居住觀光工作]" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell86"/>
+          <TableCell Name="Cell92"/>
+          <TableCell Name="Cell93"/>
+        </TableRow>
+        <TableRow Name="Row19" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell87"/>
+          <TableCell Name="Cell88" Border.Lines="All" Text="銷售數量" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell89" Border.Lines="All" Text="未稅金額" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell94" Border.Lines="All" Text="銷售數量" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell95" Border.Lines="All" Text="未稅金額" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row20" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell96" Border.Lines="All" Text="[品名]" VertAlign="Center"/>
+          <TableCell Name="Cell97" Border.Lines="All" Text="[銷售數量]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell98" Border.Lines="All" Text="[未稅金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell99" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell100" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row30" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell194" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell195" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell196" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell197" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell198" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page6" PaperWidth="1000" PaperHeight="1000">
+    <DataBand Name="Data6" Width="3704.4" Height="118.59">
+      <MatrixObject Name="Matrix6" Width="304.51" Height="109.14" Border.Lines="All" FixedRows="4" FixedColumns="1" CellsSideBySide="true" DataSource="Table5">
+        <MatrixColumns>
+          <Header Expression="[Table5.門市]"/>
+          <Header Expression="[Table5.顧客外觀性別]" Totals="false"/>
+          <Header Expression="[Table5.顧客年齡區間]" Totals="false"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table5.品名]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table5.銷售數量]"/>
+          <Cell Expression="[Table5.未稅金額]"/>
+        </MatrixCells>
+        <TableColumn Name="Column26" Width="46.07" AutoSize="true"/>
+        <TableColumn Name="Column27" Width="70.79" AutoSize="true"/>
+        <TableColumn Name="Column28" Width="70.79" AutoSize="true"/>
+        <TableColumn Name="Column29" Width="58.43" AutoSize="true"/>
+        <TableColumn Name="Column30" Width="58.43" AutoSize="true"/>
+        <TableRow Name="Row21" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell101" Border.Lines="All" Text="品名" HorzAlign="Center" VertAlign="Center" RowSpan="4"/>
+          <TableCell Name="Cell102" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell105"/>
+          <TableCell Name="Cell107" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center" ColSpan="2" RowSpan="3"/>
+          <TableCell Name="Cell117"/>
+        </TableRow>
+        <TableRow Name="Row22" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell103"/>
+          <TableCell Name="Cell104" Border.Lines="All" Text="[顧客外觀性別]" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell106"/>
+          <TableCell Name="Cell108"/>
+          <TableCell Name="Cell120"/>
+        </TableRow>
+        <TableRow Name="Row23" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell109"/>
+          <TableCell Name="Cell110" Border.Lines="All" Text="[顧客年齡區間]" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell111"/>
+          <TableCell Name="Cell112"/>
+          <TableCell Name="Cell123"/>
+        </TableRow>
+        <TableRow Name="Row24" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell113"/>
+          <TableCell Name="Cell114" Border.Lines="All" Text="銷售數量" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell115" Border.Lines="All" Text="未稅金額" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell116" Border.Lines="All" Text="銷售數量" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell126" Border.Lines="All" Text="未稅金額" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row25" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell129" Border.Lines="All" Text="[品名]" VertAlign="Center"/>
+          <TableCell Name="Cell130" Border.Lines="All" Text="[銷售數量]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell131" Border.Lines="All" Text="[未稅金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell132" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell133" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row31" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell209" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell210" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell211" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell212" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell213" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="03/16/2022 13:24:19" ReportInfo.Modified="04/12/2022 14:52:58" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpN+i5gA3VDGcwlcfm6L9ZMsLrZ3U+wEDtHCQtd9vw2XUHP46TC7Z4HOecljEb6C+73">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="SELECT&#13;&#10;[ID] AS 'ID'&#13;&#10;,[STORE1] AS '門店督導表'&#13;&#10;,[STORE2] AS '督導門店'&#13;&#10;,[STORE3] AS '督導日期'&#13;&#10;,[STORE4] AS '抵達時間'&#13;&#10;,[STORE5] AS '離開時間'&#13;&#10;,[STORE6] AS '門市督導內容'&#13;&#10;,[STORE7] AS '設備設施'&#13;&#10;,CONVERT(INT,[STORE8])  AS '評核分數-設備設施'&#13;&#10;,[STORE9] AS '門市人員'&#13;&#10;,CONVERT(INT,[STORE10])  AS '評核分數-服裝儀容符合規定'&#13;&#10;,CONVERT(INT,[STORE11])  AS '評核分數-門店工作日誌確實填寫、記錄及交接'&#13;&#10;,CONVERT(INT,[STORE12])  AS '評核分數-正常出勤無臨時請假'&#13;&#10;,CONVERT(INT,[STORE13])  AS '評核分數-電話禮儀符合'&#13;&#10;,CONVERT(INT,[STORE14])  AS '評核分數-(活動商品、內容)商品賣點抽測'&#13;&#10;,[STORE15] AS '抽測內容-(活動商品、內容)商品賣點抽測'&#13;&#10;,[STORE16] AS '商品陳列'&#13;&#10;,CONVERT(INT,[STORE17])  AS '評核分數-貨架陳列完整無空缺'&#13;&#10;,CONVERT(INT,[STORE18])  AS '評核分數-(抽測)架上商品先進先出'&#13;&#10;,CONVERT(INT,[STORE19]) AS '評核分數-商品價目牌擺放正確、無毀損'&#13;&#10;,[STORE20] AS '未先進先出商品'&#13;&#10;,[STORE21] AS '營運狀況 (含活動)'&#13;&#10;,CONVERT(INT,[STORE22])  AS '評核分數-無張貼過期POP'&#13;&#10;,CONVERT(INT,[STORE23])  AS '評核分數-(活動)POP、展示品、商品擺放正確'&#13;&#10;,CONVERT(INT,[STORE24])  AS '評核分數-抽測(活動)商品無缺貨，符合安全庫存量'&#13;&#10;,[STORE25] AS '抽測或活動商品當日實際庫存數量'&#13;&#10;,CONVERT(INT,[STORE26])  AS '評核分數-找零金金額正確'&#13;&#10;,[STORE27] AS '金額-找零金金額正確'&#13;&#10;,[STORE28] AS '環境衛生'&#13;&#10;,CONVERT(INT,[STORE29])  AS '評核分數-收銀櫃檯無灰塵、個人雜物'&#13;&#10;,CONVERT(INT,[STORE30])  AS '評核分數-層架、天花板、騎樓、地面無水漬或蜘蛛網'&#13;&#10;,CONVERT(INT,[STORE31])  AS '評核分數-玻璃無指紋'&#13;&#10;,CONVERT(INT,[STORE32])  AS '評核分數-商品無直接落地擺放'&#13;&#10;,CONVERT(INT,[STORE33])  AS '評核分數-廁所保持清潔、打掃用具歸位整齊擺放'&#13;&#10;,[STORE34] AS '庫存管理'&#13;&#10;,CONVERT(INT,[STORE35])  AS '評核分數-抽測現場商品庫存量與即時ERP系統一致'&#13;&#10;,CONVERT(INT,[STORE36])  AS '評核分數-倉庫排放整齊、(抽測)先進先出'&#13;&#10;,[STORE37] AS '庫存管理-抽測商品(抽測現場商品庫存量與即時ERP系統一致)'&#13;&#10;,[STORE38] AS '庫存管理-數量(抽測現場商品庫存量與即時ERP系統一致)'&#13;&#10;,[STORE39] AS '其他事項'&#13;&#10;,[STORE40] AS '輔導狀況-上次督導缺失輔導狀況-已改善'&#13;&#10;,[STORE41] AS '輔導狀況-上次督導缺失輔導狀況-未改善說明'&#13;&#10;,[STORE42] AS '說明-此次督導缺失、輔導內容及規劃說明'&#13;&#10;,[STORE43] AS '其他督導宣達內容'&#13;&#10;,[STORE44] AS '門店值班 簽名及回應'&#13;&#10;,[NAME] AS '填表人'&#13;&#10;,CONVERT(INT,[STORE8])+CONVERT(INT,[STORE10])+CONVERT(INT,[STORE11])+CONVERT(INT,[STORE12])+CONVERT(INT,[STORE13])+CONVERT(INT,[STORE14])+CONVERT(INT,[STORE17])+CONVERT(INT,[STORE18])+CONVERT(INT,[STORE19])+CONVERT(INT,[STORE22])+CONVERT(INT,[STORE23])+CONVERT(INT,[STORE24])+CONVERT(INT,[STORE26])+CONVERT(INT,[STORE29])+CONVERT(INT,[STORE30])+CONVERT(INT,[STORE31])+CONVERT(INT,[STORE32])+CONVERT(INT,[STORE33])+CONVERT(INT,[STORE35])+CONVERT(INT,[STORE36]) AS '總分'&#13;&#10;FROM [TKMK].[dbo].[TBSTORESCHECK]&#13;&#10;WHERE [STORE3]&gt;='2022/03/01' AND [STORE3]&lt;='2022/03/31'&#13;&#10;ORDER BY [STORE2],[STORE3]">
+        <Column Name="ID" DataType="System.String"/>
+        <Column Name="門店督導表" DataType="System.String"/>
+        <Column Name="督導門店" DataType="System.String"/>
+        <Column Name="督導日期" DataType="System.String"/>
+        <Column Name="抵達時間" DataType="System.String"/>
+        <Column Name="離開時間" DataType="System.String"/>
+        <Column Name="門市督導內容" DataType="System.String"/>
+        <Column Name="設備設施" DataType="System.String"/>
+        <Column Name="評核分數-設備設施" DataType="System.String"/>
+        <Column Name="門市人員" DataType="System.String"/>
+        <Column Name="評核分數-服裝儀容符合規定" DataType="System.String"/>
+        <Column Name="評核分數-門店工作日誌確實填寫、記錄及交接" DataType="System.String"/>
+        <Column Name="評核分數-正常出勤無臨時請假" DataType="System.String"/>
+        <Column Name="評核分數-電話禮儀符合" DataType="System.String"/>
+        <Column Name="評核分數-(活動商品、內容)商品賣點抽測" DataType="System.String"/>
+        <Column Name="抽測內容-(活動商品、內容)商品賣點抽測" DataType="System.String"/>
+        <Column Name="商品陳列" DataType="System.String"/>
+        <Column Name="評核分數-貨架陳列完整無空缺" DataType="System.String"/>
+        <Column Name="評核分數-(抽測)架上商品先進先出" DataType="System.String"/>
+        <Column Name="評核分數-商品價目牌擺放正確、無毀損" DataType="System.String"/>
+        <Column Name="未先進先出商品" DataType="System.String"/>
+        <Column Name="營運狀況 (含活動)" DataType="System.String"/>
+        <Column Name="評核分數-無張貼過期POP" DataType="System.String"/>
+        <Column Name="評核分數-(活動)POP、展示品、商品擺放正確" DataType="System.String"/>
+        <Column Name="評核分數-抽測(活動)商品無缺貨，符合安全庫存量" DataType="System.String"/>
+        <Column Name="抽測或活動商品當日實際庫存數量" DataType="System.String"/>
+        <Column Name="評核分數-找零金金額正確" DataType="System.String"/>
+        <Column Name="金額-找零金金額正確" DataType="System.String"/>
+        <Column Name="環境衛生" DataType="System.String"/>
+        <Column Name="評核分數-收銀櫃檯無灰塵、個人雜物" DataType="System.String"/>
+        <Column Name="評核分數-層架、天花板、騎樓、地面無水漬或蜘蛛網" DataType="System.String"/>
+        <Column Name="評核分數-玻璃無指紋" DataType="System.String"/>
+        <Column Name="評核分數-商品無直接落地擺放" DataType="System.String"/>
+        <Column Name="評核分數-廁所保持清潔、打掃用具歸位整齊擺放" DataType="System.String"/>
+        <Column Name="庫存管理" DataType="System.String"/>
+        <Column Name="評核分數-抽測現場商品庫存量與即時ERP系統一致" DataType="System.String"/>
+        <Column Name="評核分數-倉庫排放整齊、(抽測)先進先出" DataType="System.String"/>
+        <Column Name="庫存管理-抽測商品(抽測現場商品庫存量與即時ERP系統一致)" DataType="System.String"/>
+        <Column Name="庫存管理-數量(抽測現場商品庫存量與即時ERP系統一致)" DataType="System.String"/>
+        <Column Name="其他事項" DataType="System.String"/>
+        <Column Name="輔導狀況-上次督導缺失輔導狀況-已改善" DataType="System.String"/>
+        <Column Name="輔導狀況-上次督導缺失輔導狀況-未改善說明" DataType="System.String"/>
+        <Column Name="說明-此次督導缺失、輔導內容及規劃說明" DataType="System.String"/>
+        <Column Name="總分" DataType="System.Int32"/>
+        <Column Name="其他督導宣達內容" DataType="System.String"/>
+        <Column Name="門店值班 簽名及回應" DataType="System.String"/>
+        <Column Name="填表人" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Total Name="Total評核分數-設備設施" TotalType="Avg" Expression="[Table.評核分數-設備設施]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-服裝儀容符合規定" TotalType="Avg" Expression="[Table.評核分數-服裝儀容符合規定]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-門店工作日誌確實填寫、記錄及交接" TotalType="Avg" Expression="[Table.評核分數-門店工作日誌確實填寫、記錄及交接]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-電話禮儀符合" TotalType="Avg" Expression="[Table.評核分數-電話禮儀符合]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-正常出勤無臨時請假" TotalType="Avg" Expression="[Table.評核分數-正常出勤無臨時請假]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-(活動商品、內容)商品賣點抽測" TotalType="Avg" Expression="[Table.評核分數-(活動商品、內容)商品賣點抽測]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-貨架陳列完整無空缺" TotalType="Avg" Expression="[Table.評核分數-貨架陳列完整無空缺]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-(抽測)架上商品先進先出" TotalType="Avg" Expression="[Table.評核分數-(抽測)架上商品先進先出]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-商品價目牌擺放正確、無毀損" TotalType="Avg" Expression="[Table.評核分數-商品價目牌擺放正確、無毀損]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-無張貼過期POP" TotalType="Avg" Expression="[Table.評核分數-無張貼過期POP]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total(活動)POP、展示品、商品擺放正確" TotalType="Avg" Expression="[Table.評核分數-(活動)POP、展示品、商品擺放正確]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total抽測(活動)商品無缺貨，符合安全庫存量" TotalType="Avg" Expression="[Table.評核分數-抽測(活動)商品無缺貨，符合安全庫存量]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-找零金金額正確" TotalType="Avg" Expression="[Table.評核分數-找零金金額正確]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-收銀櫃檯無灰塵、個人雜物" TotalType="Avg" Expression="[Table.評核分數-收銀櫃檯無灰塵、個人雜物]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-層架、天花板、騎樓、地面無水漬或蜘蛛網" TotalType="Avg" Expression="[Table.評核分數-層架、天花板、騎樓、地面無水漬或蜘蛛網]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-玻璃無指紋" TotalType="Avg" Expression="[Table.評核分數-玻璃無指紋]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-商品無直接落地擺放" TotalType="Avg" Expression="[Table.評核分數-商品無直接落地擺放]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-廁所保持清潔、打掃用具歸位整齊擺放" TotalType="Avg" Expression="[Table.評核分數-廁所保持清潔、打掃用具歸位整齊擺放]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-抽測現場商品庫存量與即時ERP系統一致" TotalType="Avg" Expression="[Table.評核分數-抽測現場商品庫存量與即時ERP系統一致]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total評核分數-倉庫排放整齊、(抽測)先進先出" TotalType="Avg" Expression="[Table.評核分數-倉庫排放整齊、(抽測)先進先出]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total總分" TotalType="Avg" Expression="[Table.總分]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="1000" PaperHeight="210">
+    <ReportTitleBand Name="ReportTitle1" Width="3704.4" Height="85.05">
+      <TextObject Name="Text1" Width="3335.85" Height="18.9" Text="門店督導表" VertAlign="Center"/>
+      <TextObject Name="Text3" Top="18.9" Width="122.85" Height="66.15" Border.Lines="All" Text="表單編號" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="122.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="督導門店" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="217.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="督導日期" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="311.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="設備設施" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="406.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-設備設施" VertAlign="Center"/>
+      <TextObject Name="Text13" Left="500.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-服裝儀容符合規定" VertAlign="Center"/>
+      <TextObject Name="Text15" Left="595.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-門店工作日誌確實填寫、記錄及交接" VertAlign="Center"/>
+      <TextObject Name="Text17" Left="689.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-正常出勤無臨時請假" VertAlign="Center"/>
+      <TextObject Name="Text19" Left="784.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-電話禮儀符合" VertAlign="Center"/>
+      <TextObject Name="Text21" Left="878.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-(活動商品、內容)商品賣點抽測" VertAlign="Center"/>
+      <TextObject Name="Text25" Left="973.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-貨架陳列完整無空缺" VertAlign="Center"/>
+      <TextObject Name="Text27" Left="1067.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-(抽測)架上商品先進先出" VertAlign="Center"/>
+      <TextObject Name="Text29" Left="1162.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-商品價目牌擺放正確、無毀損" VertAlign="Center"/>
+      <TextObject Name="Text31" Left="1256.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="未先進先出商品" VertAlign="Center"/>
+      <TextObject Name="Text33" Left="1351.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-無張貼過期POP" VertAlign="Center"/>
+      <TextObject Name="Text35" Left="1445.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-(活動)POP、展示品、商品擺放正確" VertAlign="Center"/>
+      <TextObject Name="Text37" Left="1540.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-抽測(活動)商品無缺貨，符合安全庫存量" VertAlign="Center"/>
+      <TextObject Name="Text39" Left="1634.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="抽測或活動商品當日實際庫存數量" VertAlign="Center"/>
+      <TextObject Name="Text41" Left="1729.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-找零金金額正確" VertAlign="Center"/>
+      <TextObject Name="Text45" Left="1823.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-收銀櫃檯無灰塵、個人雜物" VertAlign="Center"/>
+      <TextObject Name="Text47" Left="1918.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-層架、天花板、騎樓、地面無水漬或蜘蛛網" VertAlign="Center"/>
+      <TextObject Name="Text49" Left="2012.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-玻璃無指紋" VertAlign="Center"/>
+      <TextObject Name="Text51" Left="2107.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-商品無直接落地擺放" VertAlign="Center"/>
+      <TextObject Name="Text53" Left="2201.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-廁所保持清潔、打掃用具歸位整齊擺放" VertAlign="Center"/>
+      <TextObject Name="Text55" Left="2296.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-抽測現場商品庫存量與即時ERP系統一致" VertAlign="Center"/>
+      <TextObject Name="Text57" Left="2390.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="評核分數-倉庫排放整齊、(抽測)先進先出" VertAlign="Center"/>
+      <TextObject Name="Text59" Left="2485.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="庫存管理-抽測商品(抽測現場商品庫存量與即時ERP系統一致)" VertAlign="Center"/>
+      <TextObject Name="Text61" Left="2579.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="庫存管理-數量(抽測現場商品庫存量與即時ERP系統一致)" VertAlign="Center"/>
+      <TextObject Name="Text63" Left="2674.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="其他事項" VertAlign="Center"/>
+      <TextObject Name="Text65" Left="2768.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="輔導狀況-上次督導缺失輔導狀況-已改善" VertAlign="Center"/>
+      <TextObject Name="Text67" Left="2863.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="輔導狀況-上次督導缺失輔導狀況-未改善說明" VertAlign="Center"/>
+      <TextObject Name="Text69" Left="2957.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="說明-此次督導缺失、輔導內容及規劃說明" VertAlign="Center"/>
+      <TextObject Name="Text71" Left="3052.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="其他督導宣達內容：(STORE43)" VertAlign="Center"/>
+      <TextObject Name="Text73" Left="3241.35" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="總分" VertAlign="Center"/>
+      <TextObject Name="Text102" Left="3146.85" Top="18.9" Width="94.5" Height="66.15" Border.Lines="All" Text="填表人" VertAlign="Center"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="89.54" Width="3704.4"/>
+    <GroupHeaderBand Name="GroupHeader1" Top="94.04" Width="3704.4" Condition="[Table.督導門店]" SortOrder="None">
+      <DataBand Name="Data1" Top="98.53" Width="3704.4" Height="18.9" CanGrow="true" DataSource="Table">
+        <TextObject Name="Text2" Left="122.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.督導門店]" VertAlign="Center"/>
+        <TextObject Name="Text4" Width="122.85" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.ID]" VertAlign="Center"/>
+        <TextObject Name="Text6" Left="217.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.督導日期]" VertAlign="Center"/>
+        <TextObject Name="Text8" Left="311.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.設備設施]" VertAlign="Center"/>
+        <TextObject Name="Text10" Left="406.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-設備設施]" VertAlign="Center"/>
+        <TextObject Name="Text14" Left="595.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-門店工作日誌確實填寫、記錄及交接]" VertAlign="Center"/>
+        <TextObject Name="Text12" Left="500.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-服裝儀容符合規定]" VertAlign="Center"/>
+        <TextObject Name="Text16" Left="689.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-正常出勤無臨時請假]" VertAlign="Center"/>
+        <TextObject Name="Text18" Left="784.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-電話禮儀符合]" VertAlign="Center"/>
+        <TextObject Name="Text20" Left="878.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-(活動商品、內容)商品賣點抽測]" VertAlign="Center"/>
+        <TextObject Name="Text24" Left="973.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-貨架陳列完整無空缺]" VertAlign="Center"/>
+        <TextObject Name="Text26" Left="1067.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-貨架陳列完整無空缺]" VertAlign="Center"/>
+        <TextObject Name="Text28" Left="1162.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-商品價目牌擺放正確、無毀損]" VertAlign="Center"/>
+        <TextObject Name="Text30" Left="1256.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.未先進先出商品]" VertAlign="Center"/>
+        <TextObject Name="Text32" Left="1351.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-無張貼過期POP]" VertAlign="Center"/>
+        <TextObject Name="Text34" Left="1445.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-(活動)POP、展示品、商品擺放正確]" VertAlign="Center"/>
+        <TextObject Name="Text36" Left="1540.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-抽測(活動)商品無缺貨，符合安全庫存量]" VertAlign="Center"/>
+        <TextObject Name="Text38" Left="1634.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.抽測或活動商品當日實際庫存數量]" VertAlign="Center"/>
+        <TextObject Name="Text40" Left="1729.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-找零金金額正確]" VertAlign="Center"/>
+        <TextObject Name="Text44" Left="1823.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-收銀櫃檯無灰塵、個人雜物]" VertAlign="Center"/>
+        <TextObject Name="Text46" Left="1918.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-層架、天花板、騎樓、地面無水漬或蜘蛛網]" VertAlign="Center"/>
+        <TextObject Name="Text48" Left="2012.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-玻璃無指紋]" VertAlign="Center"/>
+        <TextObject Name="Text50" Left="2107.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-商品無直接落地擺放]" VertAlign="Center"/>
+        <TextObject Name="Text52" Left="2201.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-廁所保持清潔、打掃用具歸位整齊擺放]" VertAlign="Center"/>
+        <TextObject Name="Text54" Left="2296.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-抽測現場商品庫存量與即時ERP系統一致]" VertAlign="Center"/>
+        <TextObject Name="Text56" Left="2390.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.評核分數-倉庫排放整齊、(抽測)先進先出]" VertAlign="Center"/>
+        <TextObject Name="Text58" Left="2485.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.庫存管理-抽測商品(抽測現場商品庫存量與即時ERP系統一致)]" VertAlign="Center"/>
+        <TextObject Name="Text60" Left="2579.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.庫存管理-數量(抽測現場商品庫存量與即時ERP系統一致)]" VertAlign="Center"/>
+        <TextObject Name="Text62" Left="2674.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.其他事項]" VertAlign="Center"/>
+        <TextObject Name="Text64" Left="2768.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.輔導狀況-上次督導缺失輔導狀況-已改善]" VertAlign="Center"/>
+        <TextObject Name="Text66" Left="2863.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.輔導狀況-上次督導缺失輔導狀況-未改善說明]" VertAlign="Center"/>
+        <TextObject Name="Text68" Left="2957.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.說明-此次督導缺失、輔導內容及規劃說明]" VertAlign="Center"/>
+        <TextObject Name="Text70" Left="3241.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.總分]" VertAlign="Center"/>
+        <TextObject Name="Text72" Left="3052.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.其他督導宣達內容]" VertAlign="Center"/>
+        <TextObject Name="Text101" Left="3146.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.填表人]" VertAlign="Center"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="121.93" Width="3704.4" Height="18.9">
+        <TextObject Name="Text74" Left="406.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-設備設施]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text75" Width="406.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="小計" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text76" Left="500.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-服裝儀容符合規定]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text77" Left="595.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-門店工作日誌確實填寫、記錄及交接]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text78" Left="689.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-正常出勤無臨時請假]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text79" Left="784.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-電話禮儀符合]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text80" Left="878.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-(活動商品、內容)商品賣點抽測]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text22" Left="973.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-貨架陳列完整無空缺]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text23" Left="1067.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-(抽測)架上商品先進先出]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text81" Left="1162.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-商品價目牌擺放正確、無毀損]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text82" Left="1351.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-無張貼過期POP]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text83" Left="1445.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total(活動)POP、展示品、商品擺放正確]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text84" Left="1540.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total抽測(活動)商品無缺貨，符合安全庫存量]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text85" Left="1729.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-找零金金額正確]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text42" Left="1823.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-收銀櫃檯無灰塵、個人雜物]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text43" Left="1918.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-層架、天花板、騎樓、地面無水漬或蜘蛛網]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text86" Left="2012.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-玻璃無指紋]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text87" Left="2107.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-商品無直接落地擺放]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text88" Left="2201.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-廁所保持清潔、打掃用具歸位整齊擺放]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text89" Left="2296.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-抽測現場商品庫存量與即時ERP系統一致]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text90" Left="2390.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total評核分數-倉庫排放整齊、(抽測)先進先出]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text91" Left="3241.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total總分]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text92" Left="1256.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text93" Left="1634.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text94" Left="2485.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text95" Left="2579.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text96" Left="2674.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text97" Left="2768.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text98" Left="2863.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text99" Left="2957.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text100" Left="3052.35" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text103" Left="3146.85" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" HorzAlign="Center" VertAlign="Center"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="145.32" Width="3704.4" Height="18.9"/>
+  </ReportPage>
+</Report>

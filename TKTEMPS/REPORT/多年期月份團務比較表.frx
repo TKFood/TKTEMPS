@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/04/2020 11:23:10" ReportInfo.Modified="06/27/2023 15:14:20" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpNK7VAg28EMb2zujBtCWMs8uR7KE3TT1XHtlPqNg0WX9K6gun4gasRP/jk9yZ1qSIo">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="SELECT SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 ) AS '年月'&#13;&#10;,(SELECT ISNULL(SUM(GS.[GUSETNUM]),0) FROM[TKMK].[dbo].[GROUPSALES] GS WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '交易筆數'&#13;&#10;,(SELECT ISNULL(SUM(GS.[CARNUM]),0) FROM[TKMK].[dbo].[GROUPSALES] GS WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '來車數'&#13;&#10;,(SELECT ISNULL(SUM(GS.[SALESMMONEYS]),0) FROM[TKMK].[dbo].[GROUPSALES] GS WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '團客總金額'&#13;&#10;,(SELECT SUM(ISNULL(TA017,0)) FROM [TK].dbo.POSTA WITH (NOLOCK) WHERE  TA002='106701' AND TA001 LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '消費總金額'&#13;&#10;,((SELECT SUM(ISNULL(TA017,0)) FROM [TK].dbo.POSTA WITH (NOLOCK) WHERE TA002='106701' AND TA001 LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%')-(SELECT ISNULL(SUM(GS.[SALESMMONEYS]),0) FROM[TKMK].[dbo].[GROUPSALES] GS WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%')) AS '散客總金額'&#13;&#10;FROM [TKMK].[dbo].[GROUPSALES]&#13;&#10;WHERE CONVERT(NVARCHAR,[PURGROUPSTARTDATES],112)&gt;='20200601' AND CONVERT(NVARCHAR,[PURGROUPSTARTDATES],112)&lt;='20200831'&#13;&#10;AND [STATUS]='完成接團'&#13;&#10;GROUP BY SUBSTRING(CONVERT(NVARCHAR,[PURGROUPSTARTDATES],112),1,6 )&#13;&#10;ORDER BY SUBSTRING(CONVERT(NVARCHAR,[PURGROUPSTARTDATES],112),1,6 )">
+        <Column Name="年月" DataType="System.String"/>
+        <Column Name="來車數" DataType="System.Int32"/>
+        <Column Name="團客總金額" DataType="System.Int32"/>
+        <Column Name="消費總金額" DataType="System.Decimal"/>
+        <Column Name="散客總金額" DataType="System.Decimal"/>
+        <Column Name="交易筆數" DataType="System.Int32"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="P1" DataType="System.String"/>
+    <Parameter Name="P2" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ColumnHeaderBand Name="ColumnHeader1" Width="718.2" Height="66.15">
+      <TextObject Name="Text2" Top="47.25" Width="94.5" Height="18.9" Border.Lines="All" Text="年月" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="94.5" Top="47.25" Width="94.5" Height="18.9" Border.Lines="All" Text="交易筆數" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="189" Top="47.25" Width="94.5" Height="18.9" Border.Lines="All" Text="來車數" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="283.5" Top="47.25" Width="141.75" Height="18.9" Border.Lines="All" Text="散客總金額" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="425.25" Top="47.25" Width="141.75" Height="18.9" Border.Lines="All" Text="團客總金額" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="567" Top="47.25" Width="141.75" Height="18.9" Border.Lines="All" Text="消費總金額" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text61" Left="529.2" Top="18.9" Width="189" Height="18.9" Text="第[Page#]頁/總[TotalPages#]頁" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text40" Top="18.9" Width="141.75" Height="18.9" Text="列印日期:[Year([Date])]/[Month([Date])]/[Day([Date])]" VertAlign="Center"/>
+      <TextObject Name="Text41" Left="141.75" Top="18.9" Width="387.45" Height="18.9" Text="報表期間:[P1]~[P2]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text39" Width="708.75" Height="18.9" Text="多年期月份團務比較表" HorzAlign="Center" VertAlign="Center"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="70.75" Width="718.2" Height="18.9" DataSource="Table">
+      <TextObject Name="Text1" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.年月]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text3" Left="94.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.交易筆數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="189" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.來車數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="283.5" Width="141.75" Height="18.9" Border.Lines="All" Text="[Table.散客總金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text9" Left="425.25" Width="141.75" Height="18.9" Border.Lines="All" Text="[Table.團客總金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="567" Width="141.75" Height="18.9" Border.Lines="All" Text="[Table.消費總金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+    </DataBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="94.25" Width="718.2" Height="9.45"/>
+  </ReportPage>
+</Report>

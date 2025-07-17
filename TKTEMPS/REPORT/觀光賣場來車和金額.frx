@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/07/2022 14:42:26" ReportInfo.Modified="12/15/2023 15:07:12" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpN+i5gA3VDGcwlcfm6L9ZMsLrZ3U+wEDtHCQtd9vw2XUHAB1BARr9ehGmC8O81hxGS">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="SELECT YEAR(CONVERT(DATETIME,INDATES)) AS '年度',MONTH(CONVERT(DATETIME,INDATES)) AS '月份',SUM([TOTALMONEYS]) '賣場總金額',SUM([GROUPMONEYS]) '團客金額',SUM([VISITORMONEYS]) '散客金額',SUM([CARNUM]) '來車數'&#13;&#10;FROM [TKMK].[dbo].[TBFACTORYINCOME]&#13;&#10;WHERE INDATES LIKE '2021%'&#13;&#10;GROUP BY YEAR(CONVERT(DATETIME,INDATES)),MONTH(CONVERT(DATETIME,INDATES))">
+        <Column Name="年度" DataType="System.Int32"/>
+        <Column Name="月份" DataType="System.Int32"/>
+        <Column Name="賣場總金額" DataType="System.Int32"/>
+        <Column Name="團客金額" DataType="System.Int32"/>
+        <Column Name="散客金額" DataType="System.Int32"/>
+        <Column Name="來車數" DataType="System.Int32"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <PageHeaderBand Name="PageHeader1" Width="718.2" Height="18.9">
+      <TextObject Name="Text2" Width="94.5" Height="18.9" Border.Lines="All" Text="年度" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="94.5" Width="94.5" Height="18.9" Border.Lines="All" Text="月份" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="189" Width="151.2" Height="18.9" Border.Lines="All" Text="賣場總金額(觀光+硯微墨)" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="340.2" Width="94.5" Height="18.9" Border.Lines="All" Text="團客金額" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="434.7" Width="94.5" Height="18.9" Border.Lines="All" Text="散客金額" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="529.2" Width="94.5" Height="18.9" Border.Lines="All" Text="來車數" HorzAlign="Center" VertAlign="Center"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="23.5" Width="718.2" Height="18.9" DataSource="Table">
+      <TextObject Name="Text1" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.年度]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text3" Left="94.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.月份]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="189" Width="151.2" Height="18.9" Border.Lines="All" Text="[Table.賣場總金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="340.2" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.團客金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="434.7" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.散客金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="529.2" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.來車數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="47" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

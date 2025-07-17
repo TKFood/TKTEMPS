@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/14/2021 13:57:48" ReportInfo.Modified="10/14/2021 15:21:34" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpNK7VAg28EMb2zujBtCWMs8uR7KE3TT1XHtlPqNg0WX9Louf79MrhdmYCJB7DxhcA2">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="SELECT [YEARS] AS '年月',SUM([CARNUM]) AS '來車數' &#13;&#10;FROM [TKMK].[dbo].[TBFACTORYINCOME]&#13;&#10;WHERE [YEARS]='2021'&#13;&#10;GROUP BY [YEARS]&#13;&#10;UNION ALL&#13;&#10;SELECT [YEARS],SUM([CARNUM]) AS 'CARNUM'&#13;&#10;FROM [TKMK].[dbo].[TBFACTORYINCOME]&#13;&#10;WHERE [YEARS]='2020'&#13;&#10;GROUP BY [YEARS]&#13;&#10;UNION ALL&#13;&#10;SELECT SUBSTRING([INDATES],1,6),SUM([CARNUM]) AS 'CARNUM'&#13;&#10;FROM [TKMK].[dbo].[TBFACTORYINCOME]&#13;&#10;WHERE[INDATES] LIKE '202110%'&#13;&#10;GROUP BY SUBSTRING([INDATES],1,6)&#13;&#10;UNION ALL&#13;&#10;SELECT SUBSTRING([INDATES],1,6),SUM([CARNUM]) AS 'CARNUM'&#13;&#10;FROM [TKMK].[dbo].[TBFACTORYINCOME]&#13;&#10;WHERE [INDATES] LIKE '202010%'&#13;&#10;GROUP BY SUBSTRING([INDATES],1,6)">
+        <Column Name="年月" DataType="System.String"/>
+        <Column Name="來車數" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="Table1" DataType="System.Int32" Enabled="true" SelectCommand="/****** SSMS 中 SelectTopNRows 命令的指令碼  ******/&#13;&#10;SELECT &#13;&#10;[YEARS] AS '年度'&#13;&#10;,[WEEKS] AS '週次'&#13;&#10;,SUM([TOTALMONEYS]) AS '銷售組業績'&#13;&#10;,SUM([GROUPMONEYS]) AS '團客業績'&#13;&#10;,SUM([VISITORMONEYS]) AS '散客業績'&#13;&#10;,SUM([CARNUM]) AS '遊覽車次'&#13;&#10;,AVG([CARAVGMONEYS]) AS '每車平均業績'&#13;&#10;,(SELECT SUM(TOTALMONEYS) FROM [TKMK].[dbo].[TBFACTORYINCOME] LASTTBFACTORYINCOME WHERE LASTTBFACTORYINCOME.WEEKS=[TBFACTORYINCOME].WEEKS AND LASTTBFACTORYINCOME.YEARS='2020')   AS '同期業績'&#13;&#10;,(SELECT SUM(GROUPMONEYS) FROM [TKMK].[dbo].[TBFACTORYINCOME] LASTTBFACTORYINCOME WHERE LASTTBFACTORYINCOME.WEEKS=[TBFACTORYINCOME].WEEKS AND LASTTBFACTORYINCOME.YEARS='2020')  AS '同期團客'&#13;&#10;,(SELECT SUM(VISITORMONEYS) FROM [TKMK].[dbo].[TBFACTORYINCOME] LASTTBFACTORYINCOME WHERE LASTTBFACTORYINCOME.WEEKS=[TBFACTORYINCOME].WEEKS AND LASTTBFACTORYINCOME.YEARS='2020')  AS '同期散客'&#13;&#10;,(SELECT SUM(CARNUM) FROM [TKMK].[dbo].[TBFACTORYINCOME] LASTTBFACTORYINCOME WHERE LASTTBFACTORYINCOME.WEEKS=[TBFACTORYINCOME].WEEKS AND LASTTBFACTORYINCOME.YEARS='2020')  AS '同期車次'&#13;&#10;,(SELECT AVG(CARAVGMONEYS) FROM [TKMK].[dbo].[TBFACTORYINCOME] LASTTBFACTORYINCOME WHERE LASTTBFACTORYINCOME.WEEKS=[TBFACTORYINCOME].WEEKS AND LASTTBFACTORYINCOME.YEARS='2020')  AS '同期平均業績'&#13;&#10;FROM [TKMK].[dbo].[TBFACTORYINCOME]&#13;&#10;WHERE YEARS='2021'&#13;&#10;AND WEEKS IN ('41','40' ,'39' ,'38')&#13;&#10;GROUP BY [YEARS],[WEEKS]">
+        <Column Name="年度" DataType="System.String"/>
+        <Column Name="週次" DataType="System.String"/>
+        <Column Name="銷售組業績" DataType="System.Int32"/>
+        <Column Name="團客業績" DataType="System.Int32"/>
+        <Column Name="散客業績" DataType="System.Int32"/>
+        <Column Name="遊覽車次" DataType="System.Int32"/>
+        <Column Name="每車平均業績" DataType="System.Int32"/>
+        <Column Name="同期團客" DataType="System.Int32"/>
+        <Column Name="同期散客" DataType="System.Int32"/>
+        <Column Name="同期車次" DataType="System.Int32"/>
+        <Column Name="同期平均業績" DataType="System.Int32"/>
+        <Column Name="同期業績" DataType="System.Int32"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="18.9">
+      <TextObject Name="Text1" Width="718.2" Height="18.9" Text="觀光業績及車次比較表" HorzAlign="Center" VertAlign="Center"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="23.39" Width="718.2" Height="18.9">
+      <TextObject Name="Text3" Width="94.5" Height="18.9" Border.Lines="All" Text="年月" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="94.5" Width="94.5" Height="18.9" Border.Lines="All" Text="來車數" HorzAlign="Center" VertAlign="Center"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="46.79" Width="718.2" Height="18.9" DataSource="Table">
+      <TextObject Name="Text2" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.年月]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="94.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.來車數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="70.18" Width="718.2" Height="18.9"/>
+  </ReportPage>
+  <ReportPage Name="Page2" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <ReportTitleBand Name="ReportTitle2" Width="1047.06" Height="37.8">
+      <TextObject Name="Text6" Width="718.2" Height="18.9" Text="觀光業績及車次比較表" HorzAlign="Center" VertAlign="Center"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader2" Top="42.29" Width="1047.06" Height="18.9">
+      <TextObject Name="Text8" Width="75.6" Height="18.9" Border.Lines="All" Text="年度" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="75.6" Width="56.7" Height="18.9" Border.Lines="All" Text="週次" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="132.3" Width="85.05" Height="18.9" Border.Lines="All" Text="團客業績" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text14" Left="217.35" Width="85.05" Height="18.9" Border.Lines="All" Text="散客業績" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text16" Left="302.4" Width="85.05" Height="18.9" Border.Lines="All" Text="遊覽車次" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text18" Left="387.45" Width="85.05" Height="18.9" Border.Lines="All" Text="每車平均業績" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text20" Left="472.5" Width="85.05" Height="18.9" Border.Lines="All" Text="銷售組業績" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text22" Left="557.55" Width="85.05" Height="18.9" Border.Lines="All" Text="同期團客" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text24" Left="642.6" Width="85.05" Height="18.9" Border.Lines="All" Text="同期散客" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text26" Left="727.65" Width="85.05" Height="18.9" Border.Lines="All" Text="同期車次" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text28" Left="812.7" Width="85.05" Height="18.9" Border.Lines="All" Text="同期平均業績" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text30" Left="897.75" Width="94.5" Height="18.9" Border.Lines="All" Text="同期業績" HorzAlign="Center" VertAlign="Center"/>
+    </PageHeaderBand>
+    <DataBand Name="Data2" Top="65.69" Width="1047.06" Height="18.9" DataSource="Table1">
+      <TextObject Name="Text7" Width="75.6" Height="18.9" Border.Lines="All" Text="[Table1.年度]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="75.6" Width="56.7" Height="18.9" Border.Lines="All" Text="[Table1.週次]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="132.3" Width="85.05" Height="18.9" Border.Lines="All" Text="[Table1.團客業績]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text13" Left="217.35" Width="85.05" Height="18.9" Border.Lines="All" Text="[Table1.散客業績]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text15" Left="302.4" Width="85.05" Height="18.9" Border.Lines="All" Text="[Table1.遊覽車次]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text17" Left="387.45" Width="85.05" Height="18.9" Border.Lines="All" Text="[Table1.每車平均業績]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text19" Left="472.5" Width="85.05" Height="18.9" Border.Lines="All" Text="[Table1.銷售組業績]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text21" Left="557.55" Width="85.05" Height="18.9" Border.Lines="All" Text="[Table1.同期團客]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text23" Left="642.6" Width="85.05" Height="18.9" Border.Lines="All" Text="[Table1.同期散客]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text25" Left="727.65" Width="85.05" Height="18.9" Border.Lines="All" Text="[Table1.同期車次]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text27" Left="812.7" Width="85.05" Height="18.9" Border.Lines="All" Text="[Table1.同期平均業績]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text29" Left="897.75" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table1.同期業績]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter2" Top="89.08" Width="1047.06" Height="18.9"/>
+  </ReportPage>
+</Report>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/10/2019 08:20:20" ReportInfo.Modified="09/10/2019 09:01:33" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpNK7VAg28EMb2zujBtCWMs8uR7KE3TT1XHtlPqNg0WX9JtdAeNT03hV9HIhfbtkCgW">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="SELECT TG003,TH004,TH005,SUM(TH037) AS MONEY&#13;&#10;FROM [TK].dbo.COPTG,[TK].dbo.COPTH&#13;&#10;WHERE TG001=TH001 AND TG002=TH002&#13;&#10;AND TG005='116300'&#13;&#10;AND TG003&gt;='20190901' AND TG003&lt;='20190910'&#13;&#10;GROUP BY  COPTG.TG003,COPTH.TH004,COPTH.TH005&#13;&#10;ORDER BY COPTG.TG003,COPTH.TH004">
+        <Column Name="TG003" DataType="System.String"/>
+        <Column Name="TH004" DataType="System.String"/>
+        <Column Name="TH005" DataType="System.String"/>
+        <Column Name="MONEY" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="500" PaperHeight="600">
+    <PageHeaderBand Name="PageHeader1" Width="1814.4" Height="18.9">
+      <TextObject Name="Text1" Width="330.75" Height="18.9" Text="電商部每日銷售報表"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="22.75" Width="1814.4" Height="49.5">
+      <MatrixObject Name="Matrix1" Width="268.03" Height="52.88" FixedRows="1" FixedColumns="2" DataSource="Table">
+        <MatrixColumns>
+          <Header Expression="[Table.TG003]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table.TH004]"/>
+          <Header Expression="[Table.TH005]" Totals="false"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table.MONEY]"/>
+        </MatrixCells>
+        <TableColumn Name="Column1" Width="52.31" AutoSize="true"/>
+        <TableColumn Name="Column2" Width="55.55" AutoSize="true"/>
+        <TableColumn Name="Column3" Width="52.31" AutoSize="true"/>
+        <TableColumn Name="Column4" Width="107.86" AutoSize="true"/>
+        <TableRow Name="Row1" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell1" Border.Lines="All" Text="品號" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="品名" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell5" Border.Lines="All" Text="[TG003]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell10" Border.Lines="All" Text="銷售未稅金額合計" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="16.5" AutoSize="true">
+          <TableCell Name="Cell3" Border.Lines="All" Text="[TH004]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="[TH005]" VertAlign="Center"/>
+          <TableCell Name="Cell6" Border.Lines="All" Text="[MONEY]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell11" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row3" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell7" Border.Lines="All" Text="銷售未稅金額合計" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell8" Border.Lines="All"/>
+          <TableCell Name="Cell9" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell12" Border.Lines="All" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="76.09" Width="1814.4" Height="18.9"/>
+  </ReportPage>
+</Report>

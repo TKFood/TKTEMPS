@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/27/2019 14:55:31" ReportInfo.Modified="07/22/2019 17:39:26" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpNK7VAg28EMb2zujBtCWMs8uR7KE3TT1XHtlPqNg0WX9KOKxQWKhJWqXEy5PLFHuKz">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="SELECT[DRINK] AS '飲品' ,[OTHERS] AS '其他' ,SUM([CUP]) AS '數量' &#13;&#10;FROM [TKMK].[dbo].[MKDRINKRECORD]&#13;&#10;WHERE CONVERT(NVARCHAR,[DATES],112)&gt;='20190701' AND CONVERT(NVARCHAR,[DATES],112)&lt;='20190731'&#13;&#10;GROUP BY [DRINK],[OTHERS]&#13;&#10;ORDER BY [DRINK],[OTHERS]">
+        <Column Name="飲品" DataType="System.String"/>
+        <Column Name="其他" DataType="System.String"/>
+        <Column Name="數量" DataType="System.Int32"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="P1" DataType="System.String"/>
+    <Parameter Name="P2" DataType="System.String"/>
+    <Total Name="Total" Expression="[Table.數量]" Evaluator="Data1"/>
+    <Total Name="Total1" Expression="[Table.數量]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text1" Width="718.2" Height="18.9" Text="飲品記錄表" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text2" Top="18.9" Width="378" Height="18.9" Text="日期:[P1]~[P2]"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="41.65" Width="718.2" Height="18.9">
+      <TextObject Name="Text4" Width="189" Height="18.9" Border.Lines="All" Text="飲品" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="189" Width="94.5" Height="18.9" Border.Lines="All" Text="其他" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" Text="數量" HorzAlign="Center" VertAlign="Center"/>
+    </ColumnHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="64.39" Width="718.2" Condition="[Table.飲品]+[Table.其他]">
+      <DataBand Name="Data1" Top="68.24" Width="718.2" Height="18.9" DataSource="Table">
+        <TextObject Name="Text3" Width="189" Height="18.9" Border.Lines="All" Text="[Table.飲品]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text5" Left="189" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.其他]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text7" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.數量]" HorzAlign="Center" VertAlign="Center"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="90.98" Width="718.2" Height="18.9">
+        <TextObject Name="Text11" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total1]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text12" Width="283.5" Height="18.9" Border.Lines="All" Text="小計" HorzAlign="Center" VertAlign="Center"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="113.73" Width="718.2" Height="18.9">
+      <TextObject Name="Text9" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text10" Width="283.5" Height="18.9" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+    </ColumnFooterBand>
+    <PageFooterBand Name="PageFooter1" Top="136.48" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

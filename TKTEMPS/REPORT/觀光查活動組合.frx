@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/09/2025 15:42:03" ReportInfo.Modified="05/09/2025 16:04:01" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpN+i5gA3VDGcwlcfm6L9ZMsLrZ3U+wEDtHCQtd9vw2XUG4GwhWfbeSNk2gSE61tL+i">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="&#13;&#10;SELECT &#13;&#10;TA002 AS '門市'&#13;&#10;,TA001 AS '日期'&#13;&#10;,TA003 AS '機台'&#13;&#10;,TA014 AS '發票'&#13;&#10;,TB019 AS '銷售數量'&#13;&#10;,TB025 AS '促銷折扣金額'&#13;&#10;,ML004005 AS '折扣件數'&#13;&#10;FROM &#13;&#10;(&#13;&#10;SELECT &#13;&#10;TA002,TA001,TA003,TA014,SUM(TB019) 'TB019',SUM(TB025) 'TB025'&#13;&#10;	,(SELECT SUM(ML004+ML005)&#13;&#10;	FROM [TK].dbo.POSML&#13;&#10;	WHERE ML003='420250101016') AS 'ML004005'&#13;&#10;FROM [TK].dbo.POSTA WITH(NOLOCK),[TK].dbo.POSTB WITH(NOLOCK)&#13;&#10;WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003 AND TA006=TB006&#13;&#10;AND TA002 IN (SELECT  [TA002]  FROM [TKMK].[dbo].[TB_TA002])&#13;&#10;AND ISNULL(TA014,'')&lt;&gt;''&#13;&#10;AND TB010 IN &#13;&#10;(&#13;&#10;	SELECT MJ004&#13;&#10;	FROM [TK].dbo.POSMJ&#13;&#10;	WHERE MJ003 IN (SELECT  [MJ003]  FROM [TKMK].[dbo].[TB_MJ003])&#13;&#10;)&#13;&#10;GROUP BY TA002,TA001,TA003,TA014&#13;&#10;) AS TEMP &#13;&#10;WHERE (TB019 % ML004005 &lt;&gt; 0 OR ML004005 = 0)&#13;&#10;AND TB019&gt;=5&#13;&#10;AND TA001&gt;='20250501' AND TA001&lt;='20250508'&#13;&#10;ORDER BY TA002,TA001,TA003,TA014">
+        <Column Name="門市" DataType="System.String"/>
+        <Column Name="日期" DataType="System.String"/>
+        <Column Name="機台" DataType="System.String"/>
+        <Column Name="發票" DataType="System.String"/>
+        <Column Name="銷售數量" DataType="System.Decimal"/>
+        <Column Name="促銷折扣金額" DataType="System.Decimal"/>
+        <Column Name="折扣件數" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="18.9">
+      <TextObject Name="Text1" Width="94.5" Height="18.9" Text="查活動組合"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="23.5" Width="718.2" Height="18.9">
+      <TextObject Name="Text3" Width="94.5" Height="18.9" Border.Lines="All" Text="門市" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="94.5" Width="94.5" Height="18.9" Border.Lines="All" Text="日期" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="189" Width="94.5" Height="18.9" Border.Lines="All" Text="POS機台" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" Text="發票" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="378" Width="94.5" Height="18.9" Border.Lines="All" Text="銷售數量" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text13" Left="472.5" Width="94.5" Height="18.9" Border.Lines="All" Text="促銷折扣金額" HorzAlign="Center" VertAlign="Center"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="47" Width="718.2" Height="18.9" CanGrow="true" DataSource="Table">
+      <TextObject Name="Text2" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.門市]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="94.5" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.日期]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="189" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.機台]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.發票]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="378" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.銷售數量]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text12" Left="472.5" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.促銷折扣金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+    </DataBand>
+  </ReportPage>
+</Report>

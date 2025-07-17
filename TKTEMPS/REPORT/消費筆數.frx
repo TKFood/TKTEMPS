@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/11/2025 08:26:53" ReportInfo.Modified="06/11/2025 10:51:04" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpN+i5gA3VDGcwlcfm6L9ZMsLrZ3U+wEDtHCQtd9vw2XUHTcAD+RHf9AZNrDMoj9txb">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="&#13;&#10;SELECT &#13;&#10;   '20250601~20250631' AS '查詢日期',&#13;&#10;    交易店號,&#13;&#10;	MA002 AS '門市',&#13;&#10;    SUM(總交易筆數) 總交易筆數,&#13;&#10;    SUM(金額500元的交易筆數) 金額500元的交易筆數,&#13;&#10;    SUM(金額1000元的交易筆數) 金額1000元的交易筆數,&#13;&#10;    CAST(SUM(金額500元的交易筆數) AS DECIMAL(10,2)) / NULLIF(SUM(總交易筆數), 0) AS [金額500元的%],&#13;&#10;    CAST(SUM(金額1000元的交易筆數) AS DECIMAL(10,2)) / NULLIF(SUM(總交易筆數), 0) AS [金額1000元的%]&#13;&#10;FROM &#13;&#10;(&#13;&#10;    SELECT &#13;&#10;        TA001 AS 交易日期,&#13;&#10;        TA002 AS 交易店號,&#13;&#10;        COUNT(*) AS 總交易筆數,&#13;&#10;        (&#13;&#10;            SELECT COUNT(*) &#13;&#10;            FROM [TK].dbo.POSTA TA1 &#13;&#10;            WHERE TA1.TA001 = POSTA.TA001 &#13;&#10;              AND TA1.TA002 = POSTA.TA002  &#13;&#10;              AND TA1.TA026 &gt;= 500&#13;&#10;        ) AS 金額500元的交易筆數,&#13;&#10;        (&#13;&#10;            SELECT COUNT(*) &#13;&#10;            FROM [TK].dbo.POSTA TA1 &#13;&#10;            WHERE TA1.TA001 = POSTA.TA001 &#13;&#10;              AND TA1.TA002 = POSTA.TA002  &#13;&#10;              AND TA1.TA026 &gt;= 1000&#13;&#10;        ) AS 金額1000元的交易筆數&#13;&#10;    FROM [TK].dbo.POSTA WITH(NOLOCK)&#13;&#10;    WHERE TA002 IN (&#13;&#10;        SELECT TA002&#13;&#10;        FROM [TKMK].[dbo].[TB_POS_TA002]&#13;&#10;    )&#13;&#10;    AND TA001 &gt;= '20250601' AND TA001 &lt;= '20250631'&#13;&#10;    GROUP BY TA001, TA002&#13;&#10;) AS TEMP&#13;&#10;LEFT JOIN [TK].dbo.WSCMA ON MA001=交易店號&#13;&#10;GROUP BY 交易店號,MA002&#13;&#10;ORDER BY 交易店號;&#13;&#10;">
+        <Column Name="查詢日期" DataType="System.String"/>
+        <Column Name="交易店號" DataType="System.String"/>
+        <Column Name="門市" DataType="System.String"/>
+        <Column Name="總交易筆數" DataType="System.Int32"/>
+        <Column Name="金額500元的交易筆數" DataType="System.Int32"/>
+        <Column Name="金額1000元的交易筆數" DataType="System.Int32"/>
+        <Column Name="金額500元的%" DataType="System.Decimal"/>
+        <Column Name="金額1000元的%" DataType="System.Decimal"/>
+      </TableDataSource>
+      <TableDataSource Name="Table1" DataType="System.Int32" Enabled="true" SelectCommand="&#13;&#10;SELECT &#13;&#10;    交易日期,&#13;&#10;    交易店號,&#13;&#10;	MA002 AS '門市',&#13;&#10;    總交易筆數,&#13;&#10;    金額500元的交易筆數,&#13;&#10;    金額1000元的交易筆數,&#13;&#10;    CAST(金額500元的交易筆數 AS DECIMAL(10,2)) / NULLIF(總交易筆數, 0) AS [金額500元的%],&#13;&#10;    CAST(金額1000元的交易筆數 AS DECIMAL(10,2)) / NULLIF(總交易筆數, 0) AS [金額1000元的%]&#13;&#10;FROM &#13;&#10;(&#13;&#10;    SELECT &#13;&#10;        TA001 AS 交易日期,&#13;&#10;        TA002 AS 交易店號,&#13;&#10;        COUNT(*) AS 總交易筆數,&#13;&#10;        (&#13;&#10;            SELECT COUNT(*) &#13;&#10;            FROM [TK].dbo.POSTA TA1 &#13;&#10;            WHERE TA1.TA001 = POSTA.TA001 &#13;&#10;              AND TA1.TA002 = POSTA.TA002  &#13;&#10;              AND TA1.TA026 &gt;= 500&#13;&#10;        ) AS 金額500元的交易筆數,&#13;&#10;        (&#13;&#10;            SELECT COUNT(*) &#13;&#10;            FROM [TK].dbo.POSTA TA1 &#13;&#10;            WHERE TA1.TA001 = POSTA.TA001 &#13;&#10;              AND TA1.TA002 = POSTA.TA002  &#13;&#10;              AND TA1.TA026 &gt;= 1000&#13;&#10;        ) AS 金額1000元的交易筆數&#13;&#10;    FROM [TK].dbo.POSTA WITH(NOLOCK)&#13;&#10;    WHERE TA002 IN (&#13;&#10;        SELECT TA002&#13;&#10;        FROM [TKMK].[dbo].[TB_POS_TA002]&#13;&#10;    )&#13;&#10;    AND TA001 &gt;= '20250601' AND TA001 &lt;= '20250631'&#13;&#10;    GROUP BY TA001, TA002&#13;&#10;) AS TEMP&#13;&#10;LEFT JOIN [TK].dbo.WSCMA ON MA001=交易店號&#13;&#10;ORDER BY 交易店號,交易日期&#13;&#10;">
+        <Column Name="交易日期" DataType="System.String"/>
+        <Column Name="交易店號" DataType="System.String"/>
+        <Column Name="門市" DataType="System.String"/>
+        <Column Name="總交易筆數" DataType="System.Int32"/>
+        <Column Name="金額500元的交易筆數" DataType="System.Int32"/>
+        <Column Name="金額1000元的交易筆數" DataType="System.Int32"/>
+        <Column Name="金額500元的%" DataType="System.Decimal"/>
+        <Column Name="金額1000元的%" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="18.9">
+      <TextObject Name="Text1" Width="850.5" Height="18.9" Text="消費筆數-總表"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="23.5" Width="1047.06" Height="37.8">
+      <TextObject Name="Text3" Width="189" Height="37.8" Border.Lines="All" Text="查詢日期" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="189" Width="94.5" Height="37.8" Border.Lines="All" Text="交易店號" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="283.5" Width="94.5" Height="37.8" Border.Lines="All" Text="門市" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="378" Width="94.5" Height="37.8" Border.Lines="All" Text="總交易筆數" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="472.5" Width="94.5" Height="37.8" Border.Lines="All" Text="金額500元的&#13;&#10;交易筆數" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text13" Left="567" Width="94.5" Height="37.8" Border.Lines="All" Text="金額1000元的&#13;&#10;交易筆數" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text15" Left="661.5" Width="94.5" Height="37.8" Border.Lines="All" Text="金額500元的%" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text17" Left="756" Width="94.5" Height="37.8" Border.Lines="All" Text="金額1000元的%" HorzAlign="Center" VertAlign="Center"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="65.9" Width="1047.06" Height="18.9" DataSource="Table">
+      <TextObject Name="Text2" Width="189" Height="18.9" Border.Lines="All" Text="[Table.查詢日期]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="189" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.交易店號]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.門市]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="378" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.總交易筆數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="472.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.金額500元的交易筆數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="567" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.金額1000元的交易筆數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text14" Left="661.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.金額500元的%]" Format="Percent" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text16" Left="756" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.金額1000元的%]" Format="Percent" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+    </DataBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="89.39" Width="1047.06" Height="37.8">
+      <TextObject Name="Text34" Top="9.45" Width="94.5" Height="18.9" Text="續:下表有明細"/>
+    </ColumnFooterBand>
+    <PageFooterBand Name="PageFooter1" Top="131.79" Width="1047.06" Height="18.9"/>
+  </ReportPage>
+  <ReportPage Name="Page2" Landscape="true" PaperWidth="297" PaperHeight="1000">
+    <PageHeaderBand Name="PageHeader2" Width="1047.06" Height="56.7">
+      <TextObject Name="Text19" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="交易日期" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text21" Left="94.5" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="交易店號" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text23" Left="189" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="門市" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text25" Left="283.5" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="總交易筆數" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text27" Left="378" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="金額500元的&#13;&#10;交易筆數" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text29" Left="472.5" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="金額1000元的&#13;&#10;交易筆數" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text31" Left="567" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="金額500元的%" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text33" Left="661.5" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="金額1000元的%" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text35" Width="756" Height="18.9" Text="消費筆數-明細表"/>
+    </PageHeaderBand>
+    <DataBand Name="Data2" Top="61.3" Width="1047.06" Height="18.9" DataSource="Table1">
+      <TextObject Name="Text18" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table1.交易日期]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text20" Left="94.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table1.交易店號]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text22" Left="189" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table1.門市]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text24" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table1.總交易筆數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text26" Left="378" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table1.金額500元的交易筆數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text28" Left="472.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table1.金額1000元的交易筆數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text30" Left="567" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table1.金額500元的%]" Format="Percent" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text32" Left="661.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table1.金額1000元的%]" Format="Percent" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter2" Top="84.8" Width="1047.06" Height="18.9"/>
+  </ReportPage>
+</Report>

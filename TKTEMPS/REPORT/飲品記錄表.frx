@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/27/2019 14:55:31" ReportInfo.Modified="07/22/2019 17:40:34" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpNK7VAg28EMb2zujBtCWMs8uR7KE3TT1XHtlPqNg0WX9Ia/MOwsOd3gs8AHXGkp0to">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="SELECT CONVERT(NVARCHAR,[DATES],111) AS '日期' ,[DEP] AS '部門' ,[DEPNAME] AS '部門名' ,[DRINK] AS '飲品' ,[OTHERS] AS '其他' ,[CUP] AS '數量' ,[REASON] AS '原因' ,[SIGN] AS '簽名' ,[ID]&#13;&#10;FROM [TKMK].[dbo].[MKDRINKRECORD]&#13;&#10;WHERE CONVERT(NVARCHAR,[DATES],112)&gt;='20190701' AND CONVERT(NVARCHAR,[DATES],112)&lt;='20190731'">
+        <Column Name="日期" DataType="System.String"/>
+        <Column Name="部門" DataType="System.String"/>
+        <Column Name="部門名" DataType="System.String"/>
+        <Column Name="飲品" DataType="System.String"/>
+        <Column Name="其他" DataType="System.String"/>
+        <Column Name="數量" DataType="System.Int32"/>
+        <Column Name="原因" DataType="System.String"/>
+        <Column Name="簽名" DataType="System.String"/>
+        <Column Name="ID" DataType="System.Guid"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Total Name="Total" Expression="[Table.數量]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="18.9">
+      <TextObject Name="Text1" Width="718.2" Height="18.9" Text="飲品記錄表" HorzAlign="Center" VertAlign="Center"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="22.75" Width="718.2" Height="18.9">
+      <TextObject Name="Text3" Width="75.6" Height="18.9" Border.Lines="All" Text="日期" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="75.6" Width="113.4" Height="18.9" Border.Lines="All" Text="部門名" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="189" Width="132.3" Height="18.9" Border.Lines="All" Text="飲品" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="321.3" Width="94.5" Height="18.9" Border.Lines="All" Text="其他" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="415.8" Width="56.7" Height="18.9" Border.Lines="All" Text="數量" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text13" Left="472.5" Width="151.2" Height="18.9" Border.Lines="All" Text="原因" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text15" Left="623.7" Width="94.5" Height="18.9" Border.Lines="All" Text="簽名" HorzAlign="Center" VertAlign="Center"/>
+    </ColumnHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="45.49" Width="718.2" Condition="[Table.部門]">
+      <DataBand Name="Data1" Top="49.34" Width="718.2" Height="18.9" CanGrow="true" DataSource="Table">
+        <TextObject Name="Text2" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.日期]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text4" Left="75.6" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.部門名]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text6" Left="189" Width="132.3" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.飲品]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text8" Left="321.3" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.其他]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text10" Left="415.8" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.數量]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text12" Left="472.5" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.原因]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text14" Left="623.7" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.簽名]" HorzAlign="Center" VertAlign="Center"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="72.08" Width="718.2" Height="18.9">
+        <TextObject Name="Text16" Width="415.8" Height="18.9" Border.Lines="All" Text="小計" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text17" Left="472.5" Width="245.7" Height="18.9" Border.Lines="All" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text18" Left="415.8" Width="56.7" Height="18.9" Border.Lines="All" Text="[Total]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="94.83" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

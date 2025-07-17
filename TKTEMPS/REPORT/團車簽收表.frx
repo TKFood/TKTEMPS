@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="07/21/2023 08:58:11" ReportInfo.Modified="10/17/2023 11:51:19" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpN+i5gA3VDGcwlcfm6L9ZMsLrZ3U+wEDtHCQtd9vw2XUGFS87mEPTgVCAugPu98E8D">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="SELECT  &#13;&#10;[SERNO] AS '序號'&#13;&#10;,[CARNAME] AS '車名'&#13;&#10;,[CARNO] AS '車號'&#13;&#10;,[CARKIND] AS '車種'&#13;&#10;,[GROUPKIND]  AS '團類'&#13;&#10;,[ISEXCHANGE] AS '兌換券'&#13;&#10;,[EXCHANGETOTALMONEYS] AS '券總額'&#13;&#10;,[EXCHANGESALESMMONEYS] AS '券消費'&#13;&#10;,[SALESMMONEYS] AS '消費總額'&#13;&#10;,[SPECIALMNUMS] AS '特賣數'&#13;&#10;,[SPECIALMONEYS] AS '特賣獎金'&#13;&#10;,[COMMISSIONBASEMONEYS] AS '茶水費'&#13;&#10;,[COMMISSIONPCTMONEYS] AS '消費獎金'&#13;&#10;,[TOTALCOMMISSIONMONEYS] AS '總獎金'&#13;&#10;,[CARNUM] AS '車數'&#13;&#10;,[GUSETNUM] AS '交易筆數'&#13;&#10;,[CARCOMPANY] AS '來車公司'&#13;&#10;,[TA008NO] AS '業務員名'&#13;&#10;,[TA008] AS '業務員帳號'&#13;&#10;,[EXCHANNO] AS '優惠券名'&#13;&#10;,[EXCHANACOOUNT] AS '優惠券帳號'&#13;&#10;,CONVERT(varchar(100), [GROUPSTARTDATES],120) AS '實際到達時間'&#13;&#10;,CONVERT(varchar(100), [GROUPENDDATES],120) AS '實際離開時間'&#13;&#10;,[STATUS] AS '狀態'&#13;&#10;,CONVERT(varchar(100), [PURGROUPSTARTDATES],120) AS '預計到達時間'&#13;&#10;,CONVERT(varchar(100), [PURGROUPENDDATES],120) AS '預計離開時間'&#13;&#10;,[EXCHANGEMONEYS] AS '領券額'&#13;&#10;,[ID],[CREATEDATES]&#13;&#10;FROM [TKMK].[dbo].[GROUPSALES]&#13;&#10;WHERE 1=1&#13;&#10;AND [STATUS]='完成接團 '&#13;&#10;AND ID='35393'&#13;&#10;">
+        <Column Name="序號" DataType="System.Int32"/>
+        <Column Name="車名" DataType="System.String"/>
+        <Column Name="車號" DataType="System.String"/>
+        <Column Name="車種" DataType="System.String"/>
+        <Column Name="團類" DataType="System.String"/>
+        <Column Name="兌換券" DataType="System.String"/>
+        <Column Name="券總額" DataType="System.Int32"/>
+        <Column Name="券消費" DataType="System.Int32"/>
+        <Column Name="消費總額" DataType="System.Int32"/>
+        <Column Name="特賣數" DataType="System.Int32"/>
+        <Column Name="特賣獎金" DataType="System.Int32"/>
+        <Column Name="茶水費" DataType="System.Int32"/>
+        <Column Name="消費獎金" DataType="System.Int32"/>
+        <Column Name="總獎金" DataType="System.Int32"/>
+        <Column Name="車數" DataType="System.Int32"/>
+        <Column Name="交易筆數" DataType="System.Int32"/>
+        <Column Name="來車公司" DataType="System.String"/>
+        <Column Name="業務員名" DataType="System.String"/>
+        <Column Name="業務員帳號" DataType="System.String"/>
+        <Column Name="優惠券名" DataType="System.String"/>
+        <Column Name="優惠券帳號" DataType="System.String"/>
+        <Column Name="實際到達時間" DataType="System.String"/>
+        <Column Name="實際離開時間" DataType="System.String"/>
+        <Column Name="狀態" DataType="System.String"/>
+        <Column Name="預計到達時間" DataType="System.String"/>
+        <Column Name="預計離開時間" DataType="System.String"/>
+        <Column Name="領券額" DataType="System.Int32"/>
+        <Column Name="ID" DataType="System.Decimal"/>
+        <Column Name="CREATEDATES" DataType="System.DateTime"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="75" PaperHeight="120">
+    <ReportTitleBand Name="ReportTitle1" Width="207.9" Height="37.8">
+      <TextObject Name="Text1" Width="207.9" Height="18.9" Text="團車簽收單" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text30" Top="18.9" Width="207.9" Height="18.9" Border.Lines="Bottom" Text="列印時間:[Date]" VertAlign="Center" Font="宋体, 7pt"/>
+      <TextObject Name="Text31" Left="160.65" Width="47.25" Height="18.9" Text="第1聯" HorzAlign="Center" VertAlign="Center"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="42.4" Width="207.9" Height="264.6" DataSource="Table">
+      <TextObject Name="Text2" Left="94.5" Width="103.95" Height="18.9" CanGrow="true" Text="[Table.序號]" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="94.5" Top="18.9" Width="103.95" Height="18.9" CanGrow="true" Text="[Table.車號]" VertAlign="Center"/>
+      <TextObject Name="Text5" Top="18.9" Width="94.5" Height="18.9" CanGrow="true" Text="車號" VertAlign="Center"/>
+      <TextObject Name="Text3" Width="94.5" Height="18.9" CanGrow="true" Text="序號" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="94.5" Top="37.8" Width="103.95" Height="18.9" CanGrow="true" Text="[Table.車名]" VertAlign="Center"/>
+      <TextObject Name="Text7" Top="37.8" Width="94.5" Height="18.9" CanGrow="true" Text="車名" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="94.5" Top="94.5" Width="103.95" Height="18.9" CanGrow="true" Text="[Table.消費總額]" VertAlign="Center"/>
+      <TextObject Name="Text9" Top="94.5" Width="94.5" Height="18.9" CanGrow="true" Text="消費總額" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="94.5" Top="113.4" Width="103.95" Height="18.9" CanGrow="true" Text="[Table.特賣獎金]" VertAlign="Center"/>
+      <TextObject Name="Text11" Top="113.4" Width="94.5" Height="18.9" CanGrow="true" Text="特賣獎金" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="94.5" Top="132.3" Width="103.95" Height="18.9" CanGrow="true" Text="[Table.茶水費]" VertAlign="Center"/>
+      <TextObject Name="Text13" Top="132.3" Width="94.5" Height="18.9" CanGrow="true" Text="茶水費" VertAlign="Center"/>
+      <TextObject Name="Text14" Left="94.5" Top="151.2" Width="103.95" Height="18.9" CanGrow="true" Text="[Table.消費獎金]" VertAlign="Center"/>
+      <TextObject Name="Text15" Top="151.2" Width="94.5" Height="18.9" CanGrow="true" Text="消費獎金" VertAlign="Center"/>
+      <TextObject Name="Text16" Left="94.5" Top="170.1" Width="103.95" Height="18.9" CanGrow="true" Text="[Table.總獎金]" VertAlign="Center"/>
+      <TextObject Name="Text17" Top="170.1" Width="94.5" Height="18.9" CanGrow="true" Text="總獎金" VertAlign="Center"/>
+      <TextObject Name="Text18" Left="94.5" Top="56.7" Width="103.95" Height="18.9" CanGrow="true" Text="[Table.優惠券名]" VertAlign="Center"/>
+      <TextObject Name="Text19" Top="56.7" Width="94.5" Height="18.9" CanGrow="true" Text="優惠券名" VertAlign="Center"/>
+      <TextObject Name="Text20" Left="94.5" Top="75.6" Width="103.95" Height="18.9" CanGrow="true" Text="[Table.優惠券帳號]" VertAlign="Center"/>
+      <TextObject Name="Text21" Top="75.6" Width="94.5" Height="18.9" CanGrow="true" Text="優惠券帳號" VertAlign="Center"/>
+      <TextObject Name="Text22" Left="94.5" Top="189" Width="103.95" Height="37.8" CanGrow="true" Text="[Table.實際到達時間]" VertAlign="Center"/>
+      <TextObject Name="Text23" Top="189" Width="94.5" Height="37.8" CanGrow="true" Text="到達時間" VertAlign="Center"/>
+      <TextObject Name="Text24" Left="94.5" Top="226.8" Width="103.95" Height="37.8" CanGrow="true" Text="[Table.實際離開時間]" VertAlign="Center"/>
+      <TextObject Name="Text25" Top="226.8" Width="94.5" Height="37.8" CanGrow="true" Text="離開時間" VertAlign="Center"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="311.6" Width="207.9" Height="66.15">
+      <TextObject Name="Text26" Width="94.5" Height="18.9" Text="司領簽名:" VertAlign="Center"/>
+      <TextObject Name="Text27" Top="28.35" Width="94.5" Height="18.9" Text="員工簽名:" VertAlign="Center"/>
+      <TextObject Name="Text28" Left="94.5" Width="103.95" Height="18.9" Border.Lines="Bottom" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text29" Left="94.5" Top="28.35" Width="103.95" Height="18.9" Border.Lines="Bottom" HorzAlign="Center" VertAlign="Center"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

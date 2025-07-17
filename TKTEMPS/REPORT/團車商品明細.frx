@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/28/2024 15:21:54" ReportInfo.Modified="10/28/2024 15:41:03" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpN+i5gA3VDGcwlcfm6L9ZMsLrZ3U+wEDtHCQtd9vw2XUE/QrftM9aTbXOPwF1jq+WF">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="--20241028 查團車的商品明細&#13;&#10;&#13;&#10;SELECT &#13;&#10;團類,&#13;&#10;品號,&#13;&#10;品名,&#13;&#10;單位,&#13;&#10;SUM(銷售數量) 銷售數量,&#13;&#10;SUM(銷售未稅金額) 銷售未稅金額&#13;&#10;&#13;&#10;FROM &#13;&#10;(&#13;&#10;	SELECT &#13;&#10;	[GROUPKIND] AS '團類',&#13;&#10;	POSTA.[TA008],&#13;&#10;	TA001,TA002,TA003,TA006,&#13;&#10;	TB001,TB002,TB003,TB006,&#13;&#10;	TB010 AS '品號',&#13;&#10;	MB002 AS '品名',&#13;&#10;	MB004 AS '單位',&#13;&#10;	TB019 AS '銷售數量',&#13;&#10;	TB031 AS '銷售未稅金額'&#13;&#10;&#13;&#10;	FROM &#13;&#10;		[TKMK].[dbo].[GROUPSALES]&#13;&#10;		LEFT JOIN [TK].dbo.POSTA ON POSTA.TA008=[GROUPSALES].TA008 AND  POSTA.TA001=CONVERT(NVARCHAR,[GROUPSALES].[CREATEDATES],112)&#13;&#10;		LEFT JOIN [TK].dbo.POSTB ON TB001=TA001 AND TB002=TA002 AND TB003=TA003 AND TB006=TA006&#13;&#10;		LEFT JOIN [TK].dbo.INVMB ON MB001=TB010&#13;&#10;	WHERE &#13;&#10;		CONVERT(NVARCHAR,[CREATEDATES],112) &gt;= '20241001'&#13;&#10;		AND  CONVERT(NVARCHAR,[CREATEDATES],112) &lt;= '20241031'&#13;&#10;) AS TEMP&#13;&#10;GROUP BY &#13;&#10;團類,&#13;&#10;品號,&#13;&#10;品名,&#13;&#10;單位&#13;&#10;HAVING (SUM(銷售未稅金額))&gt;0&#13;&#10;ORDER BY 團類,SUM(銷售未稅金額) DESC">
+        <Column Name="團類" DataType="System.String"/>
+        <Column Name="品號" DataType="System.String"/>
+        <Column Name="品名" DataType="System.String"/>
+        <Column Name="單位" DataType="System.String"/>
+        <Column Name="銷售數量" DataType="System.Decimal"/>
+        <Column Name="銷售未稅金額" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="P1" DataType="System.String"/>
+    <Parameter Name="P2" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="10000">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="37.8">
+      <TextObject Name="Text1" Width="340.2" Height="18.9" Text="查詢日期:[P1]~[P2]"/>
+      <TextObject Name="Text14" Top="18.9" Width="633.15" Height="18.9" Text="說明:商品的明細金額不等於團務金額，因為團務有限制離場時間，所以金額會不同"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="42.4" Width="1047.06" Height="18.9">
+      <TextObject Name="Text3" Width="179.55" Height="18.9" Border.Lines="All" Text="團類" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="179.55" Width="151.2" Height="18.9" Border.Lines="All" Text="品號" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="330.75" Width="321.3" Height="18.9" Border.Lines="All" Text="品名" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="652.05" Width="94.5" Height="18.9" Border.Lines="All" Text="單位" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="746.55" Width="94.5" Height="18.9" Border.Lines="All" Text="銷售數量" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text13" Left="841.05" Width="94.5" Height="18.9" Border.Lines="All" Text="銷售未稅金額" HorzAlign="Center" VertAlign="Center"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="65.9" Width="1047.06" Condition="[Table.團類]" SortOrder="None">
+      <DataBand Name="Data1" Top="70.49" Width="1047.06" Height="18.9" CanGrow="true" Guides="9.45" DataSource="Table">
+        <TextObject Name="Text2" Width="179.55" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.團類]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text4" Left="179.55" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.品號]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text6" Left="330.75" Width="321.3" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.品名]" VertAlign="Center"/>
+        <TextObject Name="Text8" Left="652.05" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.單位]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text10" Left="746.55" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.銷售數量]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text12" Left="841.05" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.銷售未稅金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="93.99" Width="1047.06"/>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="98.59" Width="1047.06" Height="18.9"/>
+  </ReportPage>
+</Report>

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/06/2022 14:08:30" ReportInfo.Modified="12/06/2022 15:03:29" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpN+i5gA3VDGcwlcfm6L9ZMsLrZ3U+wEDtHCQtd9vw2XUEnDKZkDy8V8E/SHMYf+kFe">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="/****** SSMS 中 SelectTopNRows 命令的指令碼  ******/&#13;&#10;SELECT &#13;&#10;[ID] &#13;&#10;,[FIELD1] AS '門店'&#13;&#10;,[FIELD2] AS '上班人員'&#13;&#10;,[FIELD3] AS '早班(A班)'&#13;&#10;,[FIELD4] AS '午班(B班)'&#13;&#10;,[FIELD5] AS '日期'&#13;&#10;,[FIELD6] AS '星期'&#13;&#10;,[FIELD7] AS '天氣'&#13;&#10;,[FIELD8] AS '早午班－交班紀錄'&#13;&#10;,[FIELD9] AS '早班-服儀確認'&#13;&#10;,[FIELD10] AS '早班-設備開啟'&#13;&#10;,[FIELD11] AS '早班-清潔檢查'&#13;&#10;,[FIELD12] AS '早班-商品陳列檢查'&#13;&#10;,[FIELD13] AS '早班-廣告檢查'&#13;&#10;,[FIELD14] AS '早班-發票號碼'&#13;&#10;,[FIELD15] AS '早班-額外金額'&#13;&#10;,[FIELD16] AS '早班-清點零用金'&#13;&#10;,[FIELD17] AS '早班-短溢原因'&#13;&#10;,[FIELD18] AS '早班-零用金短／溢'&#13;&#10;,[FIELD19] AS 'FIELD19'&#13;&#10;,[FIELD20] AS '早班-交接事項備註'&#13;&#10;,[FIELD21] AS '早班-事件記錄'&#13;&#10;,[FIELD22] AS 'FIELD22'&#13;&#10;,[FIELD23] AS '午班－閉店紀錄'&#13;&#10;,[FIELD24] AS '午班-服儀確認'&#13;&#10;,[FIELD25] AS '午班-商品陳列'&#13;&#10;,[FIELD26] AS '午班-清潔檢查'&#13;&#10;,[FIELD27] AS '午班-設備關閉	'&#13;&#10;,[FIELD28] AS '午班-廣告檢查'&#13;&#10;,[FIELD29] AS '午班-明日訂單'&#13;&#10;,[FIELD29a] AS '午班-明日訂單說明'&#13;&#10;,[FIELD30] AS 'FIELD30'&#13;&#10;,[FIELD31] AS '午班-清點零用金'&#13;&#10;,[FIELD32] AS '午班-額外金額'&#13;&#10;,[FIELD33] AS '午班-零用金短／溢	'&#13;&#10;,[FIELD34] AS '午班-短溢原因	'&#13;&#10;,[FIELD35] AS '營業額'&#13;&#10;,[FIELD36] AS 'FIELD36'&#13;&#10;,[FIELD37] AS '來客數'&#13;&#10;,[FIELD38] AS '單筆均消'&#13;&#10;,[FIELD39] AS '清機結帳'&#13;&#10;,[FIELD40] AS '交接事項備註'&#13;&#10;,[FIELD41] AS '事件記錄'&#13;&#10;,[FIELD42] AS 'FIELD42'&#13;&#10;,[NAME]&#13;&#10;FROM [TKMK].[dbo].[TBSTOREDAILY]&#13;&#10;WHERE [FIELD5]&gt;='2022/12/01' AND [FIELD5]&lt;='2022/12/06'&#13;&#10;ORDER BY [FIELD5],[FIELD1]">
+        <Column Name="ID" DataType="System.String"/>
+        <Column Name="門店" DataType="System.String"/>
+        <Column Name="上班人員" DataType="System.String"/>
+        <Column Name="早班(A班)" DataType="System.String"/>
+        <Column Name="午班(B班)" DataType="System.String"/>
+        <Column Name="日期" DataType="System.String"/>
+        <Column Name="星期" DataType="System.String"/>
+        <Column Name="天氣" DataType="System.String"/>
+        <Column Name="早午班－交班紀錄" DataType="System.String"/>
+        <Column Name="早班-服儀確認" DataType="System.String"/>
+        <Column Name="早班-設備開啟" DataType="System.String"/>
+        <Column Name="早班-清潔檢查" DataType="System.String"/>
+        <Column Name="早班-商品陳列檢查" DataType="System.String"/>
+        <Column Name="早班-廣告檢查" DataType="System.String"/>
+        <Column Name="早班-發票號碼" DataType="System.String"/>
+        <Column Name="早班-額外金額" DataType="System.String"/>
+        <Column Name="早班-清點零用金" DataType="System.String"/>
+        <Column Name="早班-短溢原因" DataType="System.String"/>
+        <Column Name="早班-零用金短／溢" DataType="System.String"/>
+        <Column Name="FIELD19" DataType="System.String"/>
+        <Column Name="早班-交接事項備註" DataType="System.String"/>
+        <Column Name="早班-事件記錄" DataType="System.String"/>
+        <Column Name="FIELD22" DataType="System.String"/>
+        <Column Name="午班－閉店紀錄" DataType="System.String"/>
+        <Column Name="午班-服儀確認" DataType="System.String"/>
+        <Column Name="午班-商品陳列" DataType="System.String"/>
+        <Column Name="午班-清潔檢查" DataType="System.String"/>
+        <Column Name="午班-設備關閉	" DataType="System.String"/>
+        <Column Name="午班-廣告檢查" DataType="System.String"/>
+        <Column Name="午班-明日訂單" DataType="System.String"/>
+        <Column Name="午班-明日訂單說明" DataType="System.String"/>
+        <Column Name="FIELD30" DataType="System.String"/>
+        <Column Name="午班-清點零用金" DataType="System.String"/>
+        <Column Name="午班-額外金額" DataType="System.String"/>
+        <Column Name="午班-零用金短／溢	" DataType="System.String"/>
+        <Column Name="午班-短溢原因	" DataType="System.String"/>
+        <Column Name="營業額" DataType="System.String"/>
+        <Column Name="FIELD36" DataType="System.String"/>
+        <Column Name="來客數" DataType="System.String"/>
+        <Column Name="單筆均消" DataType="System.String"/>
+        <Column Name="清機結帳" DataType="System.String"/>
+        <Column Name="交接事項備註" DataType="System.String"/>
+        <Column Name="事件記錄" DataType="System.String"/>
+        <Column Name="FIELD42" DataType="System.String"/>
+        <Column Name="NAME" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="1000" PaperHeight="210">
+    <ReportTitleBand Name="ReportTitle1" Width="3704.4" Height="18.9">
+      <TextObject Name="Text1" Width="396.9" Height="18.9" Text="0901.門市營業日誌"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="23.39" Width="3704.4" Height="18.9">
+      <TextObject Name="Text3" Width="151.2" Height="18.9" Border.Lines="All" Text="ID" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="151.2" Width="94.5" Height="18.9" Border.Lines="All" Text="早班(A班)" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="245.7" Width="94.5" Height="18.9" Border.Lines="All" Text="午班(B班)" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="340.2" Width="94.5" Height="18.9" Border.Lines="All" Text="日期" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="434.7" Width="94.5" Height="18.9" Border.Lines="All" Text="星期" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text13" Left="529.2" Width="94.5" Height="18.9" Border.Lines="All" Text="天氣" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text15" Left="623.7" Width="94.5" Height="18.9" Border.Lines="All" Text="早班-服儀確認" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text17" Left="718.2" Width="94.5" Height="18.9" Border.Lines="All" Text="早班-設備開啟" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text19" Left="812.7" Width="217.35" Height="18.9" Border.Lines="All" Text="早班-清潔檢查" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text23" Left="1143.45" Width="94.5" Height="18.9" Border.Lines="All" Text="早班-廣告檢查" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text25" Left="1237.95" Width="94.5" Height="18.9" Border.Lines="All" Text="早班-發票號碼" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text27" Left="1332.45" Width="94.5" Height="18.9" Border.Lines="All" Text="早班-額外金額" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text29" Left="1426.95" Width="103.95" Height="18.9" Border.Lines="All" Text="早班-清點零用金" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text31" Left="1530.9" Width="94.5" Height="18.9" Border.Lines="All" Text="早班-短溢原因" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text33" Left="1625.4" Width="113.4" Height="18.9" Border.Lines="All" Text="早班-零用金短／溢" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text37" Left="1738.8" Width="94.5" Height="18.9" Border.Lines="All" Text="早班-事件記錄" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text35" Left="1833.3" Width="94.5" Height="18.9" Border.Lines="All" Text="午班-服儀確認" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text39" Left="1927.8" Width="94.5" Height="18.9" Border.Lines="All" Text="午班-商品陳列" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text41" Left="2022.3" Width="189" Height="18.9" Border.Lines="All" Text="午班-清潔檢查" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text43" Left="2211.3" Width="94.5" Height="18.9" Border.Lines="All" Text="午班-設備關閉	" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text45" Left="2305.8" Width="94.5" Height="18.9" Border.Lines="All" Text="午班-廣告檢查" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text47" Left="2400.3" Width="94.5" Height="18.9" Border.Lines="All" Text="午班-明日訂單" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text49" Left="2494.8" Width="113.4" Height="18.9" Border.Lines="All" Text="午班-明日訂單說明" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text51" Left="2608.2" Width="103.95" Height="18.9" Border.Lines="All" Text="午班-清點零用金" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text53" Left="2712.15" Width="94.5" Height="18.9" Border.Lines="All" Text="午班-額外金額" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text55" Left="2806.65" Width="113.4" Height="18.9" Border.Lines="All" Text="午班-零用金短／溢	" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text57" Left="2920.05" Width="151.2" Height="18.9" Border.Lines="All" Text="午班-短溢原因	" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text59" Left="3071.25" Width="94.5" Height="18.9" Border.Lines="All" Text="營業額" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text67" Left="3449.25" Width="160.65" Height="18.9" Border.Lines="All" Text="事件記錄" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text69" Left="3609.9" Width="94.5" Height="18.9" Border.Lines="All" Text="填寫者" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text61" Left="3165.75" Width="94.5" Height="18.9" Border.Lines="All" Text="來客數" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text63" Left="3260.25" Width="94.5" Height="18.9" Border.Lines="All" Text="單筆均消" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text65" Left="3354.75" Width="94.5" Height="18.9" Border.Lines="All" Text="清機結帳" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text21" Left="1030.05" Width="113.4" Height="18.9" Border.Lines="All" Text="早班-商品陳列檢查" HorzAlign="Center" VertAlign="Center"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="46.79" Width="3704.4" Height="18.9" CanGrow="true" DataSource="Table">
+      <TextObject Name="Text2" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.ID]" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="151.2" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.早班(A班)]" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="245.7" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.午班(B班)]" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="340.2" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.日期]" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="434.7" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.星期]" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="529.2" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.天氣]" VertAlign="Center"/>
+      <TextObject Name="Text14" Left="623.7" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.早班-服儀確認]" VertAlign="Center"/>
+      <TextObject Name="Text16" Left="718.2" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.早班-設備開啟]" VertAlign="Center"/>
+      <TextObject Name="Text18" Left="812.7" Width="217.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.早班-清潔檢查]" VertAlign="Center"/>
+      <TextObject Name="Text22" Left="1143.45" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.早班-廣告檢查]" VertAlign="Center"/>
+      <TextObject Name="Text24" Left="1237.95" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.早班-發票號碼]" VertAlign="Center"/>
+      <TextObject Name="Text26" Left="1332.45" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.早班-額外金額]" VertAlign="Center"/>
+      <TextObject Name="Text28" Left="1426.95" Width="103.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.早班-清點零用金]" VertAlign="Center"/>
+      <TextObject Name="Text30" Left="1530.9" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.早班-短溢原因]" VertAlign="Center"/>
+      <TextObject Name="Text32" Left="1625.4" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.早班-零用金短／溢]" VertAlign="Center"/>
+      <TextObject Name="Text36" Left="1738.8" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.早班-事件記錄]" VertAlign="Center"/>
+      <TextObject Name="Text34" Left="1833.3" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.午班-服儀確認]" VertAlign="Center"/>
+      <TextObject Name="Text38" Left="1927.8" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.午班-商品陳列]" VertAlign="Center"/>
+      <TextObject Name="Text40" Left="2022.3" Width="189" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.午班-清潔檢查]" VertAlign="Center"/>
+      <TextObject Name="Text42" Left="2211.3" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.午班-設備關閉	]" VertAlign="Center"/>
+      <TextObject Name="Text44" Left="2305.8" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.午班-廣告檢查]" VertAlign="Center"/>
+      <TextObject Name="Text46" Left="2400.3" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.午班-明日訂單]" VertAlign="Center"/>
+      <TextObject Name="Text48" Left="2494.8" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.午班-明日訂單說明]" VertAlign="Center"/>
+      <TextObject Name="Text50" Left="2608.2" Width="103.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.午班-清點零用金]" VertAlign="Center"/>
+      <TextObject Name="Text52" Left="2712.15" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.午班-額外金額]" VertAlign="Center"/>
+      <TextObject Name="Text54" Left="2806.65" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.午班-零用金短／溢	]" VertAlign="Center"/>
+      <TextObject Name="Text56" Left="2920.05" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.午班-短溢原因	]" VertAlign="Center"/>
+      <TextObject Name="Text58" Left="3071.25" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.營業額]" VertAlign="Center"/>
+      <TextObject Name="Text66" Left="3449.25" Width="160.65" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.事件記錄]" VertAlign="Center"/>
+      <TextObject Name="Text68" Left="3609.9" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.NAME]" VertAlign="Center"/>
+      <TextObject Name="Text60" Left="3165.75" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.來客數]" VertAlign="Center"/>
+      <TextObject Name="Text62" Left="3260.25" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.單筆均消]" VertAlign="Center"/>
+      <TextObject Name="Text64" Left="3354.75" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.清機結帳]" VertAlign="Center"/>
+      <TextObject Name="Text20" Left="1030.05" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.早班-商品陳列檢查]" VertAlign="Center"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="70.18" Width="3704.4" Height="18.9"/>
+  </ReportPage>
+</Report>

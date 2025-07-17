@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/29/2023 10:50:09" ReportInfo.Modified="11/29/2023 11:33:05" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpN+i5gA3VDGcwlcfm6L9ZMsLrZ3U+wEDtHCQtd9vw2XUG3RY8c30ooJrSP40hqDKy5">
+      <TableDataSource Name="Table1" Alias="Table" DataType="System.Int32" Enabled="true" SelectCommand="&#13;&#10;SELECT &#13;&#10;*&#13;&#10;,1 AS COUNTS&#13;&#10;FROM [TKMK].[dbo].[TBSTORESQUESTIONAIRES]">
+        <Column Name="ID" DataType="System.Decimal"/>
+        <Column Name="時間戳記" DataType="System.DateTime"/>
+        <Column Name="門市" DataType="System.String"/>
+        <Column Name="填寫人" DataType="System.String"/>
+        <Column Name="有沒有購買商品" DataType="System.String"/>
+        <Column Name="發票號碼" DataType="System.String"/>
+        <Column Name="顧客外觀性別" DataType="System.String"/>
+        <Column Name="顧客年齡區間" DataType="System.String"/>
+        <Column Name="要送禮還是自己吃" DataType="System.String"/>
+        <Column Name="居住地" DataType="System.String"/>
+        <Column Name="本地居住觀光工作" DataType="System.String"/>
+        <Column Name="職業或行業" DataType="System.String"/>
+        <Column Name="了解到最新消息動態" DataType="System.String"/>
+        <Column Name="是否有成為老楊的會員" DataType="System.String"/>
+        <Column Name="沒有成為老楊的會員的原因" DataType="System.String"/>
+        <Column Name="打算去嘉義哪裡走走" DataType="System.String"/>
+        <Column Name="打算去嘉義哪裡走走-其他" DataType="System.String"/>
+        <Column Name="其他記錄" DataType="System.String"/>
+        <Column Name="COUNTS" DataType="System.Int32"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="P1" DataType="System.String"/>
+    <Parameter Name="P2" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="18.9">
+      <TextObject Name="Text1" Width="444.15" Height="18.9" Text="查詢日期:[P1] ~ [P2]"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="23.5" Width="1047.06" Height="75.6">
+      <MatrixObject Name="Matrix1" Width="150.64" Height="54.57" FixedRows="1" FixedColumns="1" DataSource="Table1">
+        <MatrixColumns>
+          <Header Expression="[Table.門市]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table.填寫人]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table.COUNTS]"/>
+        </MatrixCells>
+        <TableColumn Name="Column1" Width="58.43" AutoSize="true"/>
+        <TableColumn Name="Column2" Width="58.5" AutoSize="true"/>
+        <TableColumn Name="Column3" Width="33.71" AutoSize="true"/>
+        <TableRow Name="Row1" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell1" Border.Lines="All" Text="填寫人" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell5" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell3" Border.Lines="All" Text="[填寫人]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="[COUNTS]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell6" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row3" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell7" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell8" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell9" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page2" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <DataBand Name="Data2" Width="1047.06" Height="75.6">
+      <MatrixObject Name="Matrix2" Width="200.07" Height="54.57" FixedRows="1" FixedColumns="1" DataSource="Table1">
+        <MatrixColumns>
+          <Header Expression="[Table.門市]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table.有沒有購買商品]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table.COUNTS]"/>
+        </MatrixCells>
+        <TableColumn Name="Column4" Width="107.86" AutoSize="true"/>
+        <TableColumn Name="Column5" Width="58.5" AutoSize="true"/>
+        <TableColumn Name="Column6" Width="33.71" AutoSize="true"/>
+        <TableRow Name="Row4" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell10" Border.Lines="All" Text="有沒有購買商品" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell11" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell14" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell12" Border.Lines="All" Text="[有沒有購買商品]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell13" Border.Lines="All" Text="[COUNTS]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell15" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row6" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell16" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell17" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell18" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page3" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <DataBand Name="Data3" Width="1047.06" Height="75.6">
+      <MatrixObject Name="Matrix3" Width="187.71" Height="54.57" Border.Lines="All" FixedRows="1" FixedColumns="1" DataSource="Table1">
+        <MatrixColumns>
+          <Header Expression="[Table.門市]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table.顧客外觀性別]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table.COUNTS]"/>
+        </MatrixCells>
+        <TableColumn Name="Column7" Width="95.5" AutoSize="true"/>
+        <TableColumn Name="Column8" Width="58.5" AutoSize="true"/>
+        <TableColumn Name="Column9" Width="33.71" AutoSize="true"/>
+        <TableRow Name="Row7" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell19" Border.Lines="All" Text="顧客外觀性別" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell20" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell23" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row8" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell21" Border.Lines="All" Text="[顧客外觀性別]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell22" Border.Lines="All" Text="[COUNTS]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell24" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row9" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell25" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell26" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell27" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page4" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <DataBand Name="Data4" Width="1047.06" Height="68.25">
+      <MatrixObject Name="Matrix4" Width="187.71" Height="54.57" Border.Lines="All" FixedRows="1" FixedColumns="1" DataSource="Table1">
+        <MatrixColumns>
+          <Header Expression="[Table.門市]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table.顧客年齡區間]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table.COUNTS]"/>
+        </MatrixCells>
+        <TableColumn Name="Column10" Width="95.5" AutoSize="true"/>
+        <TableColumn Name="Column11" Width="58.5" AutoSize="true"/>
+        <TableColumn Name="Column12" Width="33.71" AutoSize="true"/>
+        <TableRow Name="Row10" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell28" Border.Lines="All" Text="顧客年齡區間" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell29" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell32" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row11" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell30" Border.Lines="All" Text="[顧客年齡區間]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell31" Border.Lines="All" Text="[COUNTS]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell33" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row12" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell34" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell35" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell36" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page5" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <DataBand Name="Data5" Width="1047.06" Height="75.6">
+      <MatrixObject Name="Matrix5" Width="212.43" Height="54.57" Border.Lines="All" FixedRows="1" FixedColumns="1" DataSource="Table1">
+        <MatrixColumns>
+          <Header Expression="[Table.門市]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table.要送禮還是自己吃]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table.COUNTS]"/>
+        </MatrixCells>
+        <TableColumn Name="Column13" Width="120.22" AutoSize="true"/>
+        <TableColumn Name="Column14" Width="58.5" AutoSize="true"/>
+        <TableColumn Name="Column15" Width="33.71" AutoSize="true"/>
+        <TableRow Name="Row13" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell37" Border.Lines="All" Text="要送禮還是自己吃" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell38" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell41" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row14" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell39" Border.Lines="All" Text="[要送禮還是自己吃]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell40" Border.Lines="All" Text="[COUNTS]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell42" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row15" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell43" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell44" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell45" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page6" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <DataBand Name="Data6" Width="1047.06" Height="75.6">
+      <MatrixObject Name="Matrix6" Width="150.64" Height="54.57" Border.Lines="All" FixedRows="1" FixedColumns="1" DataSource="Table1">
+        <MatrixColumns>
+          <Header Expression="[Table.門市]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table.居住地]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table.COUNTS]"/>
+        </MatrixCells>
+        <TableColumn Name="Column16" Width="58.43" AutoSize="true"/>
+        <TableColumn Name="Column17" Width="58.5" AutoSize="true"/>
+        <TableColumn Name="Column18" Width="33.71" AutoSize="true"/>
+        <TableRow Name="Row16" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell46" Border.Lines="All" Text="居住地" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell47" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell50" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row17" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell48" Border.Lines="All" Text="[居住地]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell49" Border.Lines="All" Text="[COUNTS]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell51" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row18" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell52" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell53" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell54" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page7" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <DataBand Name="Data7" Width="1047.06" Height="75.6">
+      <MatrixObject Name="Matrix7" Width="212.43" Height="54.57" Border.Lines="All" FixedRows="1" FixedColumns="1" DataSource="Table1">
+        <MatrixColumns>
+          <Header Expression="[Table.門市]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table.本地居住觀光工作]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table.COUNTS]"/>
+        </MatrixCells>
+        <TableColumn Name="Column19" Width="120.22" AutoSize="true"/>
+        <TableColumn Name="Column20" Width="58.5" AutoSize="true"/>
+        <TableColumn Name="Column21" Width="33.71" AutoSize="true"/>
+        <TableRow Name="Row19" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell55" Border.Lines="All" Text="本地居住觀光工作" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell56" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell59" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row20" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell57" Border.Lines="All" Text="[本地居住觀光工作]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell58" Border.Lines="All" Text="[COUNTS]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell60" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row21" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell61" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell62" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell63" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page8" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <DataBand Name="Data8" Width="1047.06" Height="75.6">
+      <MatrixObject Name="Matrix8" Width="175.36" Height="54.57" Border.Lines="All" FixedRows="1" FixedColumns="1" DataSource="Table1">
+        <MatrixColumns>
+          <Header Expression="[Table.門市]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table.職業或行業]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table.COUNTS]"/>
+        </MatrixCells>
+        <TableColumn Name="Column22" Width="83.15" AutoSize="true"/>
+        <TableColumn Name="Column23" Width="58.5" AutoSize="true"/>
+        <TableColumn Name="Column24" Width="33.71" AutoSize="true"/>
+        <TableRow Name="Row22" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell64" Border.Lines="All" Text="職業或行業" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell65" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell68" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row23" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell66" Border.Lines="All" Text="[職業或行業]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell67" Border.Lines="All" Text="[COUNTS]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell69" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row24" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell70" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell71" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell72" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page9" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <DataBand Name="Data9" Width="1047.06" Height="75.6">
+      <MatrixObject Name="Matrix9" Width="224.79" Height="54.57" Border.Lines="All" FixedRows="1" FixedColumns="1" DataSource="Table1">
+        <MatrixColumns>
+          <Header Expression="[Table.門市]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table.了解到最新消息動態]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table.COUNTS]"/>
+        </MatrixCells>
+        <TableColumn Name="Column25" Width="132.58" AutoSize="true"/>
+        <TableColumn Name="Column26" Width="58.5" AutoSize="true"/>
+        <TableColumn Name="Column27" Width="33.71" AutoSize="true"/>
+        <TableRow Name="Row25" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell73" Border.Lines="All" Text="了解到最新消息動態" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell74" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell77" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row26" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell75" Border.Lines="All" Text="[了解到最新消息動態]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell76" Border.Lines="All" Text="[COUNTS]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell78" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row27" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell79" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell80" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell81" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page10" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <DataBand Name="Data10" Width="1047.06" Height="75.6">
+      <MatrixObject Name="Matrix10" Width="237.14" Height="54.57" Border.Lines="All" FixedRows="1" FixedColumns="1" DataSource="Table1">
+        <MatrixColumns>
+          <Header Expression="[Table.門市]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Table.是否有成為老楊的會員]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Table.COUNTS]"/>
+        </MatrixCells>
+        <TableColumn Name="Column28" Width="144.93" AutoSize="true"/>
+        <TableColumn Name="Column29" Width="58.5" AutoSize="true"/>
+        <TableColumn Name="Column30" Width="33.71" AutoSize="true"/>
+        <TableRow Name="Row28" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell82" Border.Lines="All" Text="是否有成為老楊的會員" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell83" Border.Lines="All" Text="[門市]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell86" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row29" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell84" Border.Lines="All" Text="[是否有成為老楊的會員]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell85" Border.Lines="All" Text="[COUNTS]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell87" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row30" Height="18.19" AutoSize="true">
+          <TableCell Name="Cell88" Border.Lines="All" Text="合計" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell89" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell90" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page11" Landscape="true" PaperWidth="800" PaperHeight="1000">
+    <PageHeaderBand Name="PageHeader1" Width="2948.4" Height="28.35">
+      <TextObject Name="Text3" Width="170.1" Height="28.35" Border.Lines="All" Text="時間戳記" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="170.1" Width="94.5" Height="28.35" Border.Lines="All" Text="門市" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="264.6" Width="94.5" Height="28.35" Border.Lines="All" Text="填寫人" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="359.1" Width="94.5" Height="28.35" Border.Lines="All" Text="有沒有購買商品" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="453.6" Width="94.5" Height="28.35" Border.Lines="All" Text="發票號碼" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text13" Left="548.1" Width="94.5" Height="28.35" Border.Lines="All" Text="顧客外觀性別" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text15" Left="642.6" Width="94.5" Height="28.35" Border.Lines="All" Text="顧客年齡區間" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text17" Left="737.1" Width="113.4" Height="28.35" Border.Lines="All" Text="要送禮還是自己吃" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text19" Left="850.5" Width="94.5" Height="28.35" Border.Lines="All" Text="居住地" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text21" Left="945" Width="113.4" Height="28.35" Border.Lines="All" Text="本地居住觀光工作" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text23" Left="1058.4" Width="94.5" Height="28.35" Border.Lines="All" Text="職業或行業" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text25" Left="1152.9" Width="141.75" Height="28.35" Border.Lines="All" Text="了解到最新消息動態" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text27" Left="1294.65" Width="141.75" Height="28.35" Border.Lines="All" Text="是否有成為老楊的會員" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text29" Left="1436.4" Width="179.55" Height="28.35" Border.Lines="All" Text="沒有成為老楊的會員的原因" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text31" Left="1615.95" Width="151.2" Height="28.35" Border.Lines="All" Text="打算去嘉義哪裡走走" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text33" Left="1767.15" Width="151.2" Height="28.35" Border.Lines="All" Text="打算去嘉義哪裡走走-其他" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text35" Left="1918.35" Width="340.2" Height="28.35" Border.Lines="All" Text="其他記錄" HorzAlign="Center" VertAlign="Center"/>
+    </PageHeaderBand>
+    <DataBand Name="Data11" Top="32.95" Width="2948.4" Height="18.9" CanGrow="true" DataSource="Table1">
+      <TextObject Name="Text2" Width="170.1" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.時間戳記]" Format="Date" Format.Format="d" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="170.1" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.門市]" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="264.6" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.填寫人]" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="359.1" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.有沒有購買商品]" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="453.6" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.發票號碼]" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="548.1" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.顧客外觀性別]" VertAlign="Center"/>
+      <TextObject Name="Text14" Left="642.6" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.顧客年齡區間]" VertAlign="Center"/>
+      <TextObject Name="Text16" Left="737.1" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.要送禮還是自己吃]" VertAlign="Center"/>
+      <TextObject Name="Text18" Left="850.5" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.居住地]" VertAlign="Center"/>
+      <TextObject Name="Text20" Left="945" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.本地居住觀光工作]" VertAlign="Center"/>
+      <TextObject Name="Text22" Left="1058.4" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.職業或行業]" VertAlign="Center"/>
+      <TextObject Name="Text24" Left="1152.9" Width="141.75" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.了解到最新消息動態]" VertAlign="Center"/>
+      <TextObject Name="Text26" Left="1294.65" Width="141.75" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.是否有成為老楊的會員]" VertAlign="Center"/>
+      <TextObject Name="Text28" Left="1436.4" Width="179.55" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.沒有成為老楊的會員的原因]" VertAlign="Center"/>
+      <TextObject Name="Text30" Left="1615.95" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.打算去嘉義哪裡走走]" VertAlign="Center"/>
+      <TextObject Name="Text32" Left="1767.15" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.打算去嘉義哪裡走走-其他]" VertAlign="Center"/>
+      <TextObject Name="Text34" Left="1918.35" Width="340.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.其他記錄]" VertAlign="Center"/>
+    </DataBand>
+  </ReportPage>
+</Report>

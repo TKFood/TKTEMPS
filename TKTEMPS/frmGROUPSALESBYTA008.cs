@@ -308,7 +308,7 @@ namespace TKTEMPS
             Sequel.AppendFormat(@"
                                 SELECT 
                                 LTRIM(RTRIM((MU001)))+' '+SUBSTRING(MU002,1,3) AS 'MU001',MU002 
-                                FROM [TK].dbo.POSMU WHERE (MU001 LIKE '69%')   
+                                FROM[TKPOSTEMP].[dbo].POSMU WHERE (MU001 LIKE '69%')   
                                 AND MU001 NOT IN (
 	                                SELECT [EXCHANACOOUNT] FROM [TKMK].[dbo].[GROUPSALES] 
 	                                WHERE CONVERT(nvarchar,[CREATEDATES],112)='{0}'  AND [STATUS]='預約接團' 
@@ -567,7 +567,7 @@ namespace TKTEMPS
                 sbSqlQuery.Clear();
 
                 sbSql.AppendFormat(@" 
-                                    SELECT MU001,SUBSTRING(MU002,1,3) AS MU002 FROM [TK].dbo.POSMU WHERE MU001='{0}' ORDER BY MU001 
+                                    SELECT MU001,SUBSTRING(MU002,1,3) AS MU002 FROM[TKPOSTEMP].[dbo].POSMU WHERE MU001='{0}' ORDER BY MU001 
                                     ", MU001);
                 sbSql.AppendFormat(@"  ");
 
@@ -1881,7 +1881,7 @@ namespace TKTEMPS
                                     LEFT JOIN 
                                     (
                                     SELECT TB010,CONVERT(INT,ISNULL(SUM(TB019),0),0) SUMTB019
-                                    FROM [TK].dbo.POSTA WITH (NOLOCK),[TK].dbo.POSTB WITH (NOLOCK)
+                                    FROM[TKPOSTEMP].[dbo].POSTA WITH (NOLOCK),[TKPOSTEMP].[dbo].POSTB WITH (NOLOCK)
                                     WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003 AND TA006=TB006 
                                     AND TA008='{0}' AND TA001='{1}' AND TA005>='{2}' 
                                     AND TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
@@ -1962,7 +1962,7 @@ namespace TKTEMPS
                                     LEFT JOIN 
                                     (
                                     SELECT TB010,CONVERT(INT,ISNULL(SUM(TB019),0),0) SUMTB019
-                                    FROM [TK].dbo.POSTA WITH (NOLOCK),[TK].dbo.POSTB WITH (NOLOCK)
+                                    FROM[TKPOSTEMP].[dbo].POSTA WITH (NOLOCK),[TKPOSTEMP].[dbo].POSTB WITH (NOLOCK)
                                     WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003 AND TA006=TB006 
                                     AND TA008='{0}' AND TA001='{1}' AND TA005>='{2}' 
                                     AND TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
@@ -2026,7 +2026,7 @@ namespace TKTEMPS
             //    string connectionString = sqlsb.ConnectionString;
             //    string query = @"
             //                    SELECT CONVERT(INT, ISNULL(SUM(TB033), 0)) AS 'SALESMMONEYS'
-            //                    FROM [TK].dbo.POSTA WITH (NOLOCK), [TK].dbo.POSTB WITH (NOLOCK)
+            //                    FROM[TKPOSTEMP].[dbo].POSTA WITH (NOLOCK),[TKPOSTEMP].[dbo].POSTB WITH (NOLOCK)
             //                    WHERE TA001 = TB001 AND TA002 = TB002 AND TA003 = TB003 AND TA006 = TB006  
             //                        AND TB010 NOT IN (SELECT [ID] FROM [TKMK].[dbo].[GROUPPRODUCT] WHERE [VALID] = @Valid AND [SPLITCAL] = @SplitCal)              
             //                        AND TA008 = @TA008
@@ -2095,7 +2095,7 @@ namespace TKTEMPS
                 //將特買組的銷售金額扣掉 TB010  NOT IN (SELECT [ID] FROM [TKMK].[dbo].[GROUPPRODUCT] WHERE [SPLITCAL]='Y') 
                 sbSql.AppendFormat(@"  
                                     SELECT CONVERT(INT,ISNULL(SUM(TB033),0),0) AS 'SALESMMONEYS'
-                                    FROM [TK].dbo.POSTA WITH (NOLOCK),[TK].dbo.POSTB WITH (NOLOCK)
+                                    FROM[TKPOSTEMP].[dbo].POSTA WITH (NOLOCK),[TKPOSTEMP].[dbo].POSTB WITH (NOLOCK)
                                     WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003  AND TA006=TB006  
                                     AND TB010  NOT IN (SELECT [ID] FROM [TKMK].[dbo].[GROUPPRODUCT] WHERE [VALID]='Y' AND [SPLITCAL]='Y')              
                                     AND TA008='{0}'
@@ -2165,7 +2165,7 @@ namespace TKTEMPS
 
                 sbSql.AppendFormat(@"  
                                     SELECT CONVERT(INT,ISNULL(SUM(TA017),0)) AS EXCHANGESALESMMONEYS
-                                    FROM [TK].dbo.POSTA WITH (NOLOCK),[TK].dbo.POSTC WITH (NOLOCK)
+                                    FROM[TKPOSTEMP].[dbo].POSTA WITH (NOLOCK),[TKPOSTEMP].[dbo].POSTC WITH (NOLOCK)
                                     WHERE TA001=TC001 AND TA002=TC002 AND TA003=TC003  AND TA006=TC006
                                     AND TC008='0009'
                                     AND TA008='{0}'
@@ -2437,7 +2437,7 @@ namespace TKTEMPS
 
                 sbSql.AppendFormat(@"  
                                     SELECT COUNT(TA008) AS 'GUSETNUM'
-                                    FROM [TK].dbo.POSTA WITH (NOLOCK)
+                                    FROM[TKPOSTEMP].[dbo].POSTA WITH (NOLOCK)
                                     WHERE TA008='{0}'
                                     AND TA001='{1}'
                                     AND TA005>='{2}'
@@ -2874,8 +2874,8 @@ namespace TKTEMPS
                             ,(SELECT ISNULL(SUM(GS.[GUSETNUM]),0) FROM[TKMK].[dbo].[GROUPSALES] GS WITH (NOLOCK) WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '交易筆數'
                             ,(SELECT ISNULL(SUM(GS.[CARNUM]),0) FROM[TKMK].[dbo].[GROUPSALES] GS WITH (NOLOCK) WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '來車數'
                             ,(SELECT ISNULL(SUM(GS.[SALESMMONEYS]),0) FROM[TKMK].[dbo].[GROUPSALES] GS  WITH (NOLOCK) WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '團客總金額'
-                            ,(SELECT SUM(ISNULL(TA017,0)) FROM [TK].dbo.POSTA WITH (NOLOCK) WHERE  TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1')) AND TA001 LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '消費總金額'
-                            ,((SELECT SUM(ISNULL(TA017,0)) FROM [TK].dbo.POSTA WITH (NOLOCK) WHERE  TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1')) AND TA001 LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%')-(SELECT ISNULL(SUM(GS.[SALESMMONEYS]),0) FROM[TKMK].[dbo].[GROUPSALES] GS WITH (NOLOCK) WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%')) AS '散客總金額'
+                            ,(SELECT SUM(ISNULL(TA017,0)) FROM[TKPOSTEMP].[dbo].POSTA WITH (NOLOCK) WHERE  TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1')) AND TA001 LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '消費總金額'
+                            ,((SELECT SUM(ISNULL(TA017,0)) FROM[TKPOSTEMP].[dbo].POSTA WITH (NOLOCK) WHERE  TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1')) AND TA001 LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%')-(SELECT ISNULL(SUM(GS.[SALESMMONEYS]),0) FROM[TKMK].[dbo].[GROUPSALES] GS WITH (NOLOCK) WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%')) AS '散客總金額'
                             FROM [TKMK].[dbo].[GROUPSALES] WITH (NOLOCK)
                             WHERE CONVERT(NVARCHAR,[PURGROUPSTARTDATES],112)>='{0}' AND CONVERT(NVARCHAR,[PURGROUPSTARTDATES],112)<='{1}'
                             AND [STATUS]='完成接團'
@@ -3334,7 +3334,7 @@ namespace TKTEMPS
 		                                    ,CONVERT(varchar,[GROUPSTARTDATES], 108) AS 'STARTHM'
 		                                    ,(
 		                                    SELECT CONVERT(INT,ISNULL(SUM(TB033),0),0)
-		                                    FROM [TK].dbo.POSTA WITH (NOLOCK),[TK].dbo.POSTB WITH (NOLOCK)
+		                                    FROM[TKPOSTEMP].[dbo].POSTA WITH (NOLOCK),[TKPOSTEMP].[dbo].POSTB WITH (NOLOCK)
 		                                    WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003  AND TA006=TB006  
 		                                    AND TB010  NOT IN (SELECT [ID] FROM [TKMK].[dbo].[GROUPPRODUCT] WHERE [VALID]='Y' AND [SPLITCAL]='Y')              
 		                                    AND TA008=[GROUPSALES].[TA008] 
@@ -3353,7 +3353,7 @@ namespace TKTEMPS
 		                                    LEFT JOIN 
 		                                    (
 		                                    SELECT TB010,CONVERT(INT,ISNULL(SUM(TB019),0),0) SUMTB019
-		                                    FROM [TK].dbo.POSTA WITH (NOLOCK),[TK].dbo.POSTB WITH (NOLOCK)
+		                                    FROM[TKPOSTEMP].[dbo].POSTA WITH (NOLOCK),[TKPOSTEMP].[dbo].POSTB WITH (NOLOCK)
 		                                    WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003 AND TA006=TB006 
 		                                    AND TA008=[GROUPSALES].[TA008]  
 		                                    AND TA001=CONVERT(varchar,[GROUPSALES].[GROUPSTARTDATES], 112)  
@@ -3377,7 +3377,7 @@ namespace TKTEMPS
 		                                    LEFT JOIN 
 		                                    (
 		                                    SELECT TB010,CONVERT(INT,ISNULL(SUM(TB019),0),0) SUMTB019
-		                                    FROM [TK].dbo.POSTA WITH (NOLOCK),[TK].dbo.POSTB WITH (NOLOCK)
+		                                    FROM[TKPOSTEMP].[dbo].POSTA WITH (NOLOCK),[TKPOSTEMP].[dbo].POSTB WITH (NOLOCK)
 		                                    WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003 AND TA006=TB006 
 		                                    AND TA008=[GROUPSALES].[TA008]  
 		                                    AND TA001=CONVERT(varchar,[GROUPSALES].[CREATEDATES], 112)  
@@ -3394,7 +3394,7 @@ namespace TKTEMPS
 		                                    ,
 		                                    (
 		                                    SELECT CONVERT(INT,ISNULL(SUM(TA017),0))
-		                                    FROM [TK].dbo.POSTA WITH (NOLOCK),[TK].dbo.POSTC WITH (NOLOCK)
+		                                    FROM[TKPOSTEMP].[dbo].POSTA WITH (NOLOCK),[TKPOSTEMP].[dbo].POSTC WITH (NOLOCK)
 		                                    WHERE TA001=TC001 AND TA002=TC002 AND TA003=TC003  AND TA006=TC006
 		                                    AND TC008='0009'
 		                                    AND TA008=[GROUPSALES].[TA008] 
@@ -3427,7 +3427,7 @@ namespace TKTEMPS
 		                                    ,
 		                                    (
 		                                    SELECT COUNT(TA008) 
-		                                    FROM [TK].dbo.POSTA WITH (NOLOCK)
+		                                    FROM[TKPOSTEMP].[dbo].POSTA WITH (NOLOCK)
 		                                    WHERE TA008=[GROUPSALES].[TA008] 
 		                                    AND TA001=CONVERT(varchar,[GROUPSALES].[CREATEDATES], 112)
 		                                    AND TA005>=CONVERT(varchar,[GROUPSALES].[CREATEDATES], 108)

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="07/28/2022 09:50:01" ReportInfo.Modified="07/28/2022 10:02:11" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpN+i5gA3VDGcwlcfm6L9ZMsLrZ3U+wEDtHCQtd9vw2XUEK/mpdLAwHvkHN5KyvLvox">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="--20220728 查團車&#13;&#10;SELECT  &#13;&#10;CONVERT(nvarchar,[CREATEDATES],112) AS '日期'&#13;&#10;,[SERNO] AS '序號'&#13;&#10;,[CARNAME] AS '車名'&#13;&#10;,[CARNO] AS '車號'&#13;&#10;,[CARKIND] AS '車種'&#13;&#10;,[GROUPKIND]  AS '團類'&#13;&#10;,[ISEXCHANGE] AS '兌換券'&#13;&#10;,[EXCHANGETOTALMONEYS] AS '券總額'&#13;&#10;,[EXCHANGESALESMMONEYS] AS '券消費'&#13;&#10;,[SALESMMONEYS] AS '消費總額'&#13;&#10;,[SPECIALMNUMS] AS '特賣數'&#13;&#10;,[SPECIALMONEYS] AS '特賣獎金'&#13;&#10;,[COMMISSIONBASEMONEYS] AS '茶水費'&#13;&#10;,[COMMISSIONPCTMONEYS] AS '消費獎金'&#13;&#10;,[TOTALCOMMISSIONMONEYS] AS '總獎金'&#13;&#10;,[CARNUM] AS '車數'&#13;&#10;,[GUSETNUM] AS '來客數'&#13;&#10;,[EXCHANNO] AS '優惠券名'&#13;&#10;,[EXCHANACOOUNT] AS '優惠券帳號'&#13;&#10;,CONVERT(varchar(100), [GROUPSTARTDATES],120) AS '實際到達時間'&#13;&#10;,CONVERT(varchar(100), [GROUPENDDATES],120) AS '實際離開時間'&#13;&#10;,[STATUS] AS '狀態'&#13;&#10;,CONVERT(varchar(100), [PURGROUPSTARTDATES],120) AS '預計到達時間'&#13;&#10;,CONVERT(varchar(100), [PURGROUPENDDATES],120) AS '預計離開時間'&#13;&#10;,[EXCHANGEMONEYS] AS '領券額'&#13;&#10;,[ID]&#13;&#10;,[CREATEDATES]&#13;&#10;FROM [TKMK].[dbo].[GROUPSALES]&#13;&#10;WHERE CONVERT(nvarchar,[CREATEDATES],112)&gt;='20220701' AND CONVERT(nvarchar,[CREATEDATES],112)&lt;='20220731'&#13;&#10;AND [STATUS]&lt;&gt;'取消預約'&#13;&#10;ORDER BY CONVERT(nvarchar,[CREATEDATES],112),SERNO&#13;&#10;">
+        <Column Name="日期" DataType="System.String"/>
+        <Column Name="序號" DataType="System.Int32"/>
+        <Column Name="車名" DataType="System.String"/>
+        <Column Name="車號" DataType="System.String"/>
+        <Column Name="車種" DataType="System.String"/>
+        <Column Name="團類" DataType="System.String"/>
+        <Column Name="兌換券" DataType="System.String"/>
+        <Column Name="券總額" DataType="System.Int32"/>
+        <Column Name="券消費" DataType="System.Int32"/>
+        <Column Name="消費總額" DataType="System.Int32"/>
+        <Column Name="特賣數" DataType="System.Int32"/>
+        <Column Name="特賣獎金" DataType="System.Int32"/>
+        <Column Name="茶水費" DataType="System.Int32"/>
+        <Column Name="消費獎金" DataType="System.Int32"/>
+        <Column Name="總獎金" DataType="System.Int32"/>
+        <Column Name="車數" DataType="System.Int32"/>
+        <Column Name="來客數" DataType="System.Int32"/>
+        <Column Name="優惠券名" DataType="System.String"/>
+        <Column Name="優惠券帳號" DataType="System.String"/>
+        <Column Name="實際到達時間" DataType="System.String"/>
+        <Column Name="實際離開時間" DataType="System.String"/>
+        <Column Name="狀態" DataType="System.String"/>
+        <Column Name="預計到達時間" DataType="System.String"/>
+        <Column Name="預計離開時間" DataType="System.String"/>
+        <Column Name="領券額" DataType="System.Int32"/>
+        <Column Name="ID" DataType="System.Guid"/>
+        <Column Name="CREATEDATES" DataType="System.DateTime"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="600" PaperHeight="210">
+    <ReportTitleBand Name="ReportTitle1" Width="2192.4" Height="18.9">
+      <TextObject Name="Text1" Width="2192.4" Height="18.9" Text="團車明細" HorzAlign="Center" VertAlign="Center"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="23.39" Width="2192.4" Height="18.9">
+      <TextObject Name="Text3" Width="94.5" Height="18.9" Border.Lines="All" Text="日期" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="94.5" Width="47.25" Height="18.9" Border.Lines="All" Text="序號" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="141.75" Width="94.5" Height="18.9" Border.Lines="All" Text="車名" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="236.25" Width="94.5" Height="18.9" Border.Lines="All" Text="車號" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="330.75" Width="94.5" Height="18.9" Border.Lines="All" Text="車種" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text13" Left="425.25" Width="94.5" Height="18.9" Border.Lines="All" Text="團類" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text15" Left="519.75" Width="56.7" Height="18.9" Border.Lines="All" Text="兌換券" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text17" Left="576.45" Width="94.5" Height="18.9" Border.Lines="All" Text="券總額" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text19" Left="670.95" Width="94.5" Height="18.9" Border.Lines="All" Text="券消費" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text21" Left="765.45" Width="94.5" Height="18.9" Border.Lines="All" Text="消費總額" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text23" Left="859.95" Width="94.5" Height="18.9" Border.Lines="All" Text="特賣數" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text25" Left="954.45" Width="94.5" Height="18.9" Border.Lines="All" Text="特賣獎金" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text27" Left="1048.95" Width="94.5" Height="18.9" Border.Lines="All" Text="茶水費" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text29" Left="1143.45" Width="94.5" Height="18.9" Border.Lines="All" Text="消費獎金" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text31" Left="1237.95" Width="94.5" Height="18.9" Border.Lines="All" Text="總獎金" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text33" Left="1332.45" Width="94.5" Height="18.9" Border.Lines="All" Text="車數" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text35" Left="1426.95" Width="94.5" Height="18.9" Border.Lines="All" Text="來客數" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text37" Left="1521.45" Width="94.5" Height="18.9" Border.Lines="All" Text="優惠券名" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text39" Left="1615.95" Width="94.5" Height="18.9" Border.Lines="All" Text="優惠券帳號" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text41" Left="1710.45" Width="141.75" Height="18.9" Border.Lines="All" Text="實際到達時間" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text43" Left="1852.2" Width="151.2" Height="18.9" Border.Lines="All" Text="實際離開時間" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text45" Left="2003.4" Width="94.5" Height="18.9" Border.Lines="All" Text="狀態" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text47" Left="2097.9" Width="94.5" Height="18.9" Border.Lines="All" Text="領券額" HorzAlign="Center" VertAlign="Center"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="46.79" Width="2192.4" Height="18.9" CanGrow="true" DataSource="Table">
+      <TextObject Name="Text2" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.日期]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="94.5" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.序號]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="141.75" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.車名]" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="236.25" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.車號]" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="330.75" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.車種]" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="425.25" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.團類]" VertAlign="Center"/>
+      <TextObject Name="Text14" Left="519.75" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.兌換券]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text16" Left="576.45" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.券總額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text18" Left="670.95" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.券消費]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text20" Left="765.45" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.消費總額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text22" Left="859.95" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.特賣數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text24" Left="954.45" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.特賣獎金]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text26" Left="1048.95" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.茶水費]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text28" Left="1143.45" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.消費獎金]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text30" Left="1237.95" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.總獎金]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text32" Left="1332.45" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.車數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text34" Left="1426.95" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.來客數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text36" Left="1521.45" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.優惠券名]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text38" Left="1615.95" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.優惠券帳號]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text40" Left="1710.45" Width="141.75" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.實際到達時間]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text42" Left="1852.2" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.實際離開時間]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text44" Left="2003.4" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.狀態]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text46" Left="2097.9" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.領券額]" HorzAlign="Center" VertAlign="Center"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="70.18" Width="2192.4" Height="18.9"/>
+  </ReportPage>
+</Report>

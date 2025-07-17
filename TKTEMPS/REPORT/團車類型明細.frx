@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/22/2024 13:44:45" ReportInfo.Modified="10/28/2024 14:52:25" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpN+i5gA3VDGcwlcfm6L9ZMsLrZ3U+wEDtHCQtd9vw2XUEw9e8+jLtOy5mcqb/rPWm6">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="SELECT &#13;&#10;[GROUPKIND],&#13;&#10;COUNT([GROUPKIND]) AS '來車數',&#13;&#10;SUM(SALESMMONEYS) AS '銷售總金額',&#13;&#10;SUM([TOTALCOMMISSIONMONEYS]) AS '佣金總金額',&#13;&#10;SUM([GUSETNUM]) AS '結帳筆數',&#13;&#10;SUM(SALESMMONEYS)/COUNT([GROUPKIND]) AS '每車平均銷售金額',&#13;&#10;SUM([GUSETNUM])/COUNT([GROUPKIND])  AS '每車平均結帳筆數'&#13;&#10;&#13;&#10;FROM &#13;&#10;    [TKMK].[dbo].[GROUPSALES]&#13;&#10;WHERE &#13;&#10;    CONVERT(NVARCHAR,[CREATEDATES],112) &gt;= '20241001'&#13;&#10;	AND  CONVERT(NVARCHAR,[CREATEDATES],112) &lt;= '20241031'&#13;&#10;GROUP BY &#13;&#10;    [GROUPKIND]&#13;&#10;ORDER BY &#13;&#10;    COUNT([GROUPKIND]) DESC&#13;&#10;&#13;&#10;">
+        <Column Name="GROUPKIND" DataType="System.String"/>
+        <Column Name="來車數" DataType="System.Int32"/>
+        <Column Name="銷售總金額" DataType="System.Int32"/>
+        <Column Name="佣金總金額" DataType="System.Int32"/>
+        <Column Name="結帳筆數" DataType="System.Int32"/>
+        <Column Name="每車平均銷售金額" DataType="System.Int32"/>
+        <Column Name="每車平均結帳筆數" DataType="System.Int32"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="P1" DataType="System.String"/>
+    <Parameter Name="P2" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210">
+    <PageHeaderBand Name="PageHeader1" Width="1047.06" Height="37.8">
+      <TextObject Name="Text2" Top="18.9" Width="151.2" Height="18.9" Border.Lines="All" Text="團類" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="151.2" Top="18.9" Width="94.5" Height="18.9" Border.Lines="All" Text="來車數" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="245.7" Top="18.9" Width="94.5" Height="18.9" Border.Lines="All" Text="銷售總金額" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="340.2" Top="18.9" Width="94.5" Height="18.9" Border.Lines="All" Text="佣金總金額" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="434.7" Top="18.9" Width="94.5" Height="18.9" Border.Lines="All" Text="結帳筆數" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="529.2" Top="18.9" Width="113.4" Height="18.9" Border.Lines="All" Text="每車平均銷售金額" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text14" Left="642.6" Top="18.9" Width="113.4" Height="18.9" Border.Lines="All" Text="每車平均結帳筆數" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text15" Width="311.85" Height="18.9" Text="查詢日期:[P1]~[P2]" VertAlign="Center"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="42.4" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Table">
+      <TextObject Name="Text1" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.GROUPKIND]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text3" Left="151.2" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.來車數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="245.7" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.銷售總金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="340.2" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.佣金總金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="434.7" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.結帳筆數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="529.2" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.每車平均銷售金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text13" Left="642.6" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Table.每車平均結帳筆數]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="65.9" Width="1047.06" Height="18.9"/>
+  </ReportPage>
+</Report>
