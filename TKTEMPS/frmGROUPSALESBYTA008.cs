@@ -178,7 +178,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -232,7 +232,7 @@ namespace TKTEMPS
         {
             //20210902密
             Class1 TKID = new Class1();//用new 建立類別實體
-            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
             //資料庫使用者密碼解密
             sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -242,7 +242,7 @@ namespace TKTEMPS
             sqlConn = new SqlConnection(sqlsb.ConnectionString);
 
             StringBuilder Sequel = new StringBuilder();
-            Sequel.AppendFormat(@"SELECT [ID],[NAME] FROM [TKTEMPS].[dbo].[CARKIND] WHERE [VALID] IN ('Y') ORDER BY [ID] ");
+            Sequel.AppendFormat(@"SELECT [ID],[NAME] FROM [TKMK].[dbo].[CARKIND] WHERE [VALID] IN ('Y') ORDER BY [ID] ");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
             sqlConn.Open();
@@ -264,7 +264,7 @@ namespace TKTEMPS
         {
             //20210902密
             Class1 TKID = new Class1();//用new 建立類別實體
-            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
             //資料庫使用者密碼解密
             sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -274,7 +274,7 @@ namespace TKTEMPS
             sqlConn = new SqlConnection(sqlsb.ConnectionString);
 
             StringBuilder Sequel = new StringBuilder();
-            Sequel.AppendFormat(@"SELECT [ID],[NAME] FROM [TKTEMPS].[dbo].[GROUPKIND] WHERE VALID IN ('Y') ORDER BY [ID] ");
+            Sequel.AppendFormat(@"SELECT [ID],[NAME] FROM [TKMK].[dbo].[GROUPKIND] WHERE VALID IN ('Y') ORDER BY [ID] ");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
             sqlConn.Open();
@@ -295,7 +295,7 @@ namespace TKTEMPS
         {
             //20210902密
             Class1 TKID = new Class1();//用new 建立類別實體
-            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
             //資料庫使用者密碼解密
             sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -310,7 +310,7 @@ namespace TKTEMPS
                                 LTRIM(RTRIM((MU001)))+' '+SUBSTRING(MU002,1,3) AS 'MU001',MU002 
                                 FROM [TK].dbo.POSMU WHERE (MU001 LIKE '69%')   
                                 AND MU001 NOT IN (
-	                                SELECT [EXCHANACOOUNT] FROM [TKTEMPS].[dbo].[GROUPSALES] 
+	                                SELECT [EXCHANACOOUNT] FROM [TKMK].[dbo].[GROUPSALES] 
 	                                WHERE CONVERT(nvarchar,[CREATEDATES],112)='{0}'  AND [STATUS]='預約接團' 
                                 ) ORDER BY MU001
                                 ", dateTimePicker1.Value.ToString("yyyyMMdd"));
@@ -332,7 +332,7 @@ namespace TKTEMPS
         {
             //20210902密
             Class1 TKID = new Class1();//用new 建立類別實體
-            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
             //資料庫使用者密碼解密
             sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -342,7 +342,7 @@ namespace TKTEMPS
             sqlConn = new SqlConnection(sqlsb.ConnectionString);
 
             StringBuilder Sequel = new StringBuilder();
-            Sequel.AppendFormat(@"SELECT KINDS, PARASNAMES, DVALUES FROM  [TKTEMPS].dbo.TBZPARAS WHERE  (KINDS = 'STATUS') ORDER BY   DVALUES ");
+            Sequel.AppendFormat(@"SELECT KINDS, PARASNAMES, DVALUES FROM  [TKMK].[dbo].TBZPARAS WHERE  (KINDS = 'STATUS') ORDER BY   DVALUES ");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
             sqlConn.Open();
@@ -363,7 +363,7 @@ namespace TKTEMPS
         {
             //20210902密
             Class1 TKID = new Class1();//用new 建立類別實體
-            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
             //資料庫使用者密碼解密
             sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -373,7 +373,7 @@ namespace TKTEMPS
             sqlConn = new SqlConnection(sqlsb.ConnectionString);
 
             StringBuilder Sequel = new StringBuilder();
-            Sequel.AppendFormat(@"SELECT [ID],[CARCOMPANY],[PRINTS],[CPMMENTS] FROM [TKTEMPS].[dbo].[GROUPCARCOMPANY]  WHERE VALID IN ('Y') ORDER BY [ID]");
+            Sequel.AppendFormat(@"SELECT [ID],[CARCOMPANY],[PRINTS],[CPMMENTS] FROM [TKMK].[dbo].[GROUPCARCOMPANY]  WHERE VALID IN ('Y') ORDER BY [ID]");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
             sqlConn.Open();
@@ -397,7 +397,7 @@ namespace TKTEMPS
         {
             //20210902密
             Class1 TKID = new Class1();//用new 建立類別實體
-            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
             //資料庫使用者密碼解密
             sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -410,7 +410,7 @@ namespace TKTEMPS
             Sequel.AppendFormat(@"
                                 SELECT 0 ID,'全部' CARCOMPANY
                                 UNION ALL
-                                SELECT [ID],[CARCOMPANY] FROM [TKTEMPS].[dbo].[GROUPCARCOMPANY] ORDER BY [ID]
+                                SELECT [ID],[CARCOMPANY] FROM [TKMK].[dbo].[GROUPCARCOMPANY] ORDER BY [ID]
                                 ");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
@@ -433,7 +433,7 @@ namespace TKTEMPS
         {
             //20210902密
             Class1 TKID = new Class1();//用new 建立類別實體
-            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
             //資料庫使用者密碼解密
             sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -444,7 +444,7 @@ namespace TKTEMPS
 
             StringBuilder Sequel = new StringBuilder();
             Sequel.AppendFormat(@"                                 
-                                SELECT [PARASNAMES],[DVALUES] FROM [TKTEMPS].[dbo].[TBZPARAS] WHERE [KINDS]='REPOSRT1' ORDER BY [PARASNAMES]
+                                SELECT [PARASNAMES],[DVALUES] FROM [TKMK].[dbo].[TBZPARAS] WHERE [KINDS]='REPOSRT1' ORDER BY [PARASNAMES]
                                 ");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
@@ -485,7 +485,7 @@ namespace TKTEMPS
         {
             //20210902密
             Class1 TKID = new Class1();//用new 建立類別實體
-            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
             //資料庫使用者密碼解密
             sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -496,7 +496,7 @@ namespace TKTEMPS
 
             StringBuilder Sequel = new StringBuilder();
             Sequel.AppendFormat(@"                                 
-                                SELECT [PARASNAMES],[DVALUES] FROM [TKTEMPS].[dbo].[TBZPARAS] WHERE [KINDS]='PLAYDAYKINDS' ORDER BY [PARASNAMES]
+                                SELECT [PARASNAMES],[DVALUES] FROM [TKMK].[dbo].[TBZPARAS] WHERE [KINDS]='PLAYDAYKINDS' ORDER BY [PARASNAMES]
                                 ");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
@@ -514,7 +514,7 @@ namespace TKTEMPS
         {
             //20210902密
             Class1 TKID = new Class1();//用new 建立類別實體
-            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
             //資料庫使用者密碼解密
             sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -525,7 +525,7 @@ namespace TKTEMPS
 
             StringBuilder Sequel = new StringBuilder();
             Sequel.AppendFormat(@"                                 
-                                SELECT [PARASNAMES],[DVALUES] FROM [TKTEMPS].[dbo].[TBZPARAS] WHERE [KINDS]='PLAYDAYS' ORDER BY [PARASNAMES]
+                                SELECT [PARASNAMES],[DVALUES] FROM [TKMK].[dbo].[TBZPARAS] WHERE [KINDS]='PLAYDAYS' ORDER BY [PARASNAMES]
                                 ");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
@@ -553,7 +553,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -619,7 +619,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -636,7 +636,7 @@ namespace TKTEMPS
 
 
                 sbSql.AppendFormat(@"  
-                                    SELECT ISNULL(MAX(SERNO),'0') SERNO FROM  [TKTEMPS].[dbo].[GROUPSALES] WHERE CONVERT(NVARCHAR,[CREATEDATES],112)='{0}'"
+                                    SELECT ISNULL(MAX(SERNO),'0') SERNO FROM  [TKMK].[dbo].[GROUPSALES] WHERE CONVERT(NVARCHAR,[CREATEDATES],112)='{0}'"
                                     , CREATEDATES);
                 sbSql.AppendFormat(@"  ");
 
@@ -707,7 +707,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -754,7 +754,7 @@ namespace TKTEMPS
                                     ,[ID]
                                     ,[CREATEDATES]
 
-                                    FROM [TKTEMPS].[dbo].[GROUPSALES]
+                                    FROM [TKMK].[dbo].[GROUPSALES]
                                     WHERE CONVERT(nvarchar,[CREATEDATES],112)='{0}'
                                     AND [STATUS]<>'取消預約'
                                     ORDER BY CONVERT(nvarchar,[CREATEDATES],112),CONVERT(int,[SERNO]) DESC
@@ -973,7 +973,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -988,7 +988,7 @@ namespace TKTEMPS
 
                 sbSql.AppendFormat(@"  
                                     SELECT [CARNO],[CARNAME],[CARKIND]
-                                    FROM [TKTEMPS].[dbo].[GROUPCAR]
+                                    FROM [TKMK].[dbo].[GROUPCAR]
                                     WHERE [CARNO]='{0}'
                                         ", CARNO);
 
@@ -1094,7 +1094,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -1111,7 +1111,7 @@ namespace TKTEMPS
 
 
                 sbSql.AppendFormat(@" 
-                                    INSERT INTO [TKTEMPS].[dbo].[GROUPSALES]
+                                    INSERT INTO [TKMK].[dbo].[GROUPSALES]
                                     (
                                     [CREATEDATES]
                                     ,[SERNO]
@@ -1280,7 +1280,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -1296,7 +1296,7 @@ namespace TKTEMPS
                 tran = sqlConn.BeginTransaction();
 
                 sbSql.AppendFormat(@" 
-                                    UPDATE [TKTEMPS].[dbo].[GROUPSALES]
+                                    UPDATE [TKMK].[dbo].[GROUPSALES]
                                     SET 
                                     CARCOMPANY='{1}'
                                     ,TA008NO='{2}'
@@ -1374,7 +1374,7 @@ namespace TKTEMPS
 
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -1390,7 +1390,7 @@ namespace TKTEMPS
                 tran = sqlConn.BeginTransaction();
 
                 sbSql.AppendFormat(@" 
-                                    INSERT INTO [TKTEMPS].[dbo].[GROUPCAR]
+                                    INSERT INTO [TKMK].[dbo].[GROUPCAR]
                                     ([CARNO],[CARNAME],[CARKIND],[CARCOMPANY])
                                     VALUES
                                     ('{0}','{1}','{2}','{3}')
@@ -1434,7 +1434,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -1450,7 +1450,7 @@ namespace TKTEMPS
                 tran = sqlConn.BeginTransaction();
 
                 sbSql.AppendFormat(@" 
-                                    UPDATE [TKTEMPS].[dbo].[GROUPCAR]
+                                    UPDATE [TKMK].[dbo].[GROUPCAR]
                                     SET [CARNAME]='{1}',[CARKIND]='{2}',[CARCOMPANY]='{3}'
                                     WHERE [CARNO]='{0}'", CARNO, CARNAME, CARKIND, CARCOMPANY);
 
@@ -1491,7 +1491,7 @@ namespace TKTEMPS
 
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -1558,7 +1558,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -1575,7 +1575,7 @@ namespace TKTEMPS
 
 
                 sbSql.AppendFormat(@" 
-                                    UPDATE [TKTEMPS].[dbo].[GROUPSALES]
+                                    UPDATE [TKMK].[dbo].[GROUPSALES]
                                     SET STATUS='{1}'
                                     WHERE [ID]='{0}'
                                     ", ID, STATUS);
@@ -1615,7 +1615,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -1631,7 +1631,7 @@ namespace TKTEMPS
 
 
                 sbSql.AppendFormat(@" 
-                                    UPDATE  [TKTEMPS].[dbo].[GROUPSALES]
+                                    UPDATE  [TKMK].[dbo].[GROUPSALES]
                                     SET GROUPSTARTDATES='{1}'
                                     WHERE ID='{0}'
                                     ", ID, GROUPSTARTDATES);
@@ -1669,7 +1669,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -1685,7 +1685,7 @@ namespace TKTEMPS
 
 
                 sbSql.AppendFormat(@" 
-                                    UPDATE  [TKTEMPS].[dbo].[GROUPSALES]
+                                    UPDATE  [TKMK].[dbo].[GROUPSALES]
                                     SET GROUPENDDATES='{1}'
                                     WHERE ID='{0}'
                                     ", ID, GROUPENDDATES);
@@ -1764,7 +1764,7 @@ namespace TKTEMPS
                         //SPECIALMNUMS，算出特賣品的銷貨數量，只要VALID='Y'，就計算
                         //SPECIALNUMSMONEYS，算出特賣品 組的金額，重復SPECIALMONEYS，先不用
                         //SPECIALMONEYS，算出特賣品，銷售數量/每組*組數獎金 的金額，只要VALID='Y'，就計算
-                        //SALESMMONEYS，算出該會員所有銷售金額，扣掉特賣品不合併計算的總金額，AND TB010  NOT IN (SELECT [ID] FROM [TKTEMPS].[dbo].[GROUPPRODUCT] WHERE [VALID]='Y' AND [SPLITCAL]='Y') 
+                        //SALESMMONEYS，算出該會員所有銷售金額，扣掉特賣品不合併計算的總金額，AND TB010  NOT IN (SELECT [ID] FROM [TKMK].[dbo].[GROUPPRODUCT] WHERE [VALID]='Y' AND [SPLITCAL]='Y') 
                         //EXCHANGESALESMMONEYS，計算用司機兌換券消費的金額
                         //EXCHANGEMONEYS，找出車種的兌換券可用金額
                         //EXCHANGETOTALMONEYS，找出車種的兌換券可用金額*車數
@@ -1859,7 +1859,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -1877,14 +1877,14 @@ namespace TKTEMPS
                                     FROM 
                                     (
                                     SELECT [ID],[NAME],[NUM],[MONEYS],[SPLITCAL],[VALID],[SDATES],[EDATES],TB010,SUMTB019
-                                    FROM [TKTEMPS].[dbo].[GROUPPRODUCT]
+                                    FROM [TKMK].[dbo].[GROUPPRODUCT]
                                     LEFT JOIN 
                                     (
                                     SELECT TB010,CONVERT(INT,ISNULL(SUM(TB019),0),0) SUMTB019
                                     FROM [TK].dbo.POSTA WITH (NOLOCK),[TK].dbo.POSTB WITH (NOLOCK)
                                     WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003 AND TA006=TB006 
                                     AND TA008='{0}' AND TA001='{1}' AND TA005>='{2}' 
-                                    AND TA002 IN (SELECT  [TA002] FROM [TKTEMPS].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
+                                    AND TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
                                     GROUP BY TB010
                                     ) AS TEMP ON TB010=ID
                                     WHERE [VALID]='Y' 
@@ -1939,7 +1939,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -1958,14 +1958,14 @@ namespace TKTEMPS
                                     FROM 
                                     (
                                     SELECT [ID],[NAME],[NUM],[MONEYS],[SPLITCAL],[VALID],[SDATES],[EDATES],TB010,SUMTB019
-                                    FROM [TKTEMPS].[dbo].[GROUPPRODUCT]
+                                    FROM [TKMK].[dbo].[GROUPPRODUCT]
                                     LEFT JOIN 
                                     (
                                     SELECT TB010,CONVERT(INT,ISNULL(SUM(TB019),0),0) SUMTB019
                                     FROM [TK].dbo.POSTA WITH (NOLOCK),[TK].dbo.POSTB WITH (NOLOCK)
                                     WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003 AND TA006=TB006 
                                     AND TA008='{0}' AND TA001='{1}' AND TA005>='{2}' 
-                                    AND TA002 IN (SELECT  [TA002] FROM [TKTEMPS].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
+                                    AND TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
                                     GROUP BY TB010
                                     ) AS TEMP ON TB010=ID
                                     WHERE [VALID]='Y' 
@@ -2017,7 +2017,7 @@ namespace TKTEMPS
             //{
             //    //20210902密
             //    Class1 TKID = new Class1();//用new 建立類別實體
-            //    SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+            //    SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
             //    //資料庫使用者密碼解密
             //    sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -2028,11 +2028,11 @@ namespace TKTEMPS
             //                    SELECT CONVERT(INT, ISNULL(SUM(TB033), 0)) AS 'SALESMMONEYS'
             //                    FROM [TK].dbo.POSTA WITH (NOLOCK), [TK].dbo.POSTB WITH (NOLOCK)
             //                    WHERE TA001 = TB001 AND TA002 = TB002 AND TA003 = TB003 AND TA006 = TB006  
-            //                        AND TB010 NOT IN (SELECT [ID] FROM [TKTEMPS].[dbo].[GROUPPRODUCT] WHERE [VALID] = @Valid AND [SPLITCAL] = @SplitCal)              
+            //                        AND TB010 NOT IN (SELECT [ID] FROM [TKMK].[dbo].[GROUPPRODUCT] WHERE [VALID] = @Valid AND [SPLITCAL] = @SplitCal)              
             //                        AND TA008 = @TA008
             //                        AND TA001 = @TA001
             //                        AND TA005 >= @TA005
-            //                        AND TA002 IN (SELECT [TA002] FROM [TKTEMPS].[dbo].[GROUPSTORES] WHERE KINDNAMES IN (@KindNames))";
+            //                        AND TA002 IN (SELECT [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN (@KindNames))";
 
             //    using (SqlConnection connection = new SqlConnection(connectionString))
             //    {
@@ -2079,7 +2079,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -2092,16 +2092,16 @@ namespace TKTEMPS
                 sbSql.Clear();
                 sbSqlQuery.Clear();
 
-                //將特買組的銷售金額扣掉 TB010  NOT IN (SELECT [ID] FROM [TKTEMPS].[dbo].[GROUPPRODUCT] WHERE [SPLITCAL]='Y') 
+                //將特買組的銷售金額扣掉 TB010  NOT IN (SELECT [ID] FROM [TKMK].[dbo].[GROUPPRODUCT] WHERE [SPLITCAL]='Y') 
                 sbSql.AppendFormat(@"  
                                     SELECT CONVERT(INT,ISNULL(SUM(TB033),0),0) AS 'SALESMMONEYS'
                                     FROM [TK].dbo.POSTA WITH (NOLOCK),[TK].dbo.POSTB WITH (NOLOCK)
                                     WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003  AND TA006=TB006  
-                                    AND TB010  NOT IN (SELECT [ID] FROM [TKTEMPS].[dbo].[GROUPPRODUCT] WHERE [VALID]='Y' AND [SPLITCAL]='Y')              
+                                    AND TB010  NOT IN (SELECT [ID] FROM [TKMK].[dbo].[GROUPPRODUCT] WHERE [VALID]='Y' AND [SPLITCAL]='Y')              
                                     AND TA008='{0}'
                                     AND TA001='{1}'
                                     AND TA005>='{2}'
-                                    AND TA002 IN (SELECT  [TA002] FROM [TKTEMPS].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
+                                    AND TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
                                     ", TA008, TA001, TA005);
 
                 adapter1 = new SqlDataAdapter(@"" + sbSql, sqlConn);
@@ -2149,7 +2149,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -2171,7 +2171,7 @@ namespace TKTEMPS
                                     AND TA008='{0}'
                                     AND TA001='{1}'
                                     AND TA005>='{2}'
-                                    AND TA002 IN (SELECT  [TA002] FROM [TKTEMPS].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
+                                    AND TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
                                     ", TA008, TA001, TA005);
 
                 adapter1 = new SqlDataAdapter(@"" + sbSql, sqlConn);
@@ -2216,7 +2216,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -2232,7 +2232,7 @@ namespace TKTEMPS
                 sbSql.AppendFormat(@"  
                                    SELECT  
                                     CONVERT(INT,[EXCHANGEMONEYS],0) AS EXCHANGEMONEYS   
-                                    FROM [TKTEMPS].[dbo].[GROUPEXCHANGEMONEYS]
+                                    FROM [TKMK].[dbo].[GROUPEXCHANGEMONEYS]
                                     WHERE  1=1
                                     AND [VALID]='Y'
                                     AND [CARKIND]='{0}'
@@ -2284,7 +2284,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -2299,7 +2299,7 @@ namespace TKTEMPS
 
                 sbSql.AppendFormat(@"  
                                 SELECT CONVERT(INT,[BASEMONEYS],0) AS 'BASEMONEYS' 
-                                FROM [TKTEMPS].[dbo].[GROUPBASE] 
+                                FROM [TKMK].[dbo].[GROUPBASE] 
                                 WHERE 1=1
                                 AND VALID='Y'
                                 AND CONVERT(NVARCHAR,SDATES,112)<='{1}'
@@ -2353,7 +2353,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -2369,7 +2369,7 @@ namespace TKTEMPS
                 sbSql.AppendFormat(@"  
                                     SELECT [ID],[PCTMONEYS],[NAME],[PCT]
                                     ,CONVERT(NVARCHAR,SDATES,112) SDATES,CONVERT(NVARCHAR,EDATES,112) EDATES
-                                    FROM [TKTEMPS].[dbo].[GROUPPCT]
+                                    FROM [TKMK].[dbo].[GROUPPCT]
                                     WHERE [NAME]='{0}' AND ({1}-[PCTMONEYS])>=0
                                     AND VALID='Y'
                                     AND CONVERT(NVARCHAR,SDATES,112)<='{2}'
@@ -2422,7 +2422,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -2441,7 +2441,7 @@ namespace TKTEMPS
                                     WHERE TA008='{0}'
                                     AND TA001='{1}'
                                     AND TA005>='{2}'
-                                   AND TA002 IN (SELECT  [TA002] FROM [TKTEMPS].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
+                                   AND TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
                                     ", TA008, TA001, TA005);
 
                 adapter1 = new SqlDataAdapter(@"" + sbSql, sqlConn);
@@ -2494,7 +2494,7 @@ namespace TKTEMPS
 
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -2512,7 +2512,7 @@ namespace TKTEMPS
 
 
                 sbSql.AppendFormat(@" 
-                                    UPDATE [TKTEMPS].[dbo].[GROUPSALES]
+                                    UPDATE [TKMK].[dbo].[GROUPSALES]
                                     SET [EXCHANGEMONEYS]={1},[EXCHANGETOTALMONEYS]={2},[EXCHANGESALESMMONEYS]={3},[SALESMMONEYS]={4},[SPECIALMNUMS]={5},[SPECIALMONEYS]={6},[COMMISSIONBASEMONEYS]={7},[COMMISSIONPCT]={8},[COMMISSIONPCTMONEYS]={9},[TOTALCOMMISSIONMONEYS]={10},[GUSETNUM]={11}
                                     WHERE [ID]='{0}'
                                     ", ID, EXCHANGEMONEYS, EXCHANGETOTALMONEYS, EXCHANGESALESMMONEYS, SALESMMONEYS, SPECIALMNUMS, SPECIALMONEYS, COMMISSIONBASEMONEYS, COMMISSIONPCT, COMMISSIONPCTMONEYS, TOTALCOMMISSIONMONEYS, GUSETNUM);
@@ -2558,7 +2558,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -2573,14 +2573,14 @@ namespace TKTEMPS
 
                 sbSql.AppendFormat(@"  
                                     SELECT COUNT(CARNO) AS NUMS  
-                                    ,(SELECT SUM(GUSETNUM) FROM [TKTEMPS].[dbo].[GROUPSALES] GP WHERE CONVERT(NVARCHAR,GP.GROUPSTARTDATES,112)=CONVERT(NVARCHAR,[GROUPSALES].GROUPSTARTDATES,112) ) AS GUSETNUMS
-                                    ,(SELECT SUM(SALESMMONEYS) FROM [TKTEMPS].[dbo].[GROUPSALES] GP WITH(NOLOCK) WHERE CONVERT(NVARCHAR,GP.GROUPSTARTDATES,112)=CONVERT(NVARCHAR,[GROUPSALES].GROUPSTARTDATES,112) ) AS SALESMMONEYS
-                                    ,(SELECT COUNT(CARNO) FROM [TKTEMPS].[dbo].[GROUPSALES] GP WITH(NOLOCK) WHERE CONVERT(NVARCHAR,GP.GROUPSTARTDATES,112)=CONVERT(NVARCHAR,[GROUPSALES].GROUPSTARTDATES,112) AND STATUS='預約接團') AS CARNUM1
-                                    ,(SELECT COUNT(CARNO) FROM [TKTEMPS].[dbo].[GROUPSALES] GP WITH(NOLOCK) WHERE CONVERT(NVARCHAR,GP.GROUPSTARTDATES,112)=CONVERT(NVARCHAR,[GROUPSALES].GROUPSTARTDATES,112) AND STATUS='取消預約') AS CARNUM2
-                                    ,(SELECT COUNT(CARNO) FROM [TKTEMPS].[dbo].[GROUPSALES] GP WITH(NOLOCK) WHERE CONVERT(NVARCHAR,GP.GROUPSTARTDATES,112)=CONVERT(NVARCHAR,[GROUPSALES].GROUPSTARTDATES,112) AND STATUS='異常結案') AS CARNUM3
-                                    ,(SELECT COUNT(CARNO) FROM [TKTEMPS].[dbo].[GROUPSALES] GP WITH(NOLOCK) WHERE CONVERT(NVARCHAR,GP.GROUPSTARTDATES,112)=CONVERT(NVARCHAR,[GROUPSALES].GROUPSTARTDATES,112) AND STATUS='完成接團') AS CARNUM4
-                                    ,(SELECT COUNT(CARNO) FROM [TKTEMPS].[dbo].[GROUPSALES] GP WITH(NOLOCK) WHERE CONVERT(NVARCHAR,GP.GROUPSTARTDATES,112)=CONVERT(NVARCHAR,[GROUPSALES].GROUPSTARTDATES,112) AND STATUS='預約接團') AS CARNUM5
-                                    FROM [TKTEMPS].[dbo].[GROUPSALES] WITH(NOLOCK)
+                                    ,(SELECT SUM(GUSETNUM) FROM [TKMK].[dbo].[GROUPSALES] GP WHERE CONVERT(NVARCHAR,GP.GROUPSTARTDATES,112)=CONVERT(NVARCHAR,[GROUPSALES].GROUPSTARTDATES,112) ) AS GUSETNUMS
+                                    ,(SELECT SUM(SALESMMONEYS) FROM [TKMK].[dbo].[GROUPSALES] GP WITH(NOLOCK) WHERE CONVERT(NVARCHAR,GP.GROUPSTARTDATES,112)=CONVERT(NVARCHAR,[GROUPSALES].GROUPSTARTDATES,112) ) AS SALESMMONEYS
+                                    ,(SELECT COUNT(CARNO) FROM [TKMK].[dbo].[GROUPSALES] GP WITH(NOLOCK) WHERE CONVERT(NVARCHAR,GP.GROUPSTARTDATES,112)=CONVERT(NVARCHAR,[GROUPSALES].GROUPSTARTDATES,112) AND STATUS='預約接團') AS CARNUM1
+                                    ,(SELECT COUNT(CARNO) FROM [TKMK].[dbo].[GROUPSALES] GP WITH(NOLOCK) WHERE CONVERT(NVARCHAR,GP.GROUPSTARTDATES,112)=CONVERT(NVARCHAR,[GROUPSALES].GROUPSTARTDATES,112) AND STATUS='取消預約') AS CARNUM2
+                                    ,(SELECT COUNT(CARNO) FROM [TKMK].[dbo].[GROUPSALES] GP WITH(NOLOCK) WHERE CONVERT(NVARCHAR,GP.GROUPSTARTDATES,112)=CONVERT(NVARCHAR,[GROUPSALES].GROUPSTARTDATES,112) AND STATUS='異常結案') AS CARNUM3
+                                    ,(SELECT COUNT(CARNO) FROM [TKMK].[dbo].[GROUPSALES] GP WITH(NOLOCK) WHERE CONVERT(NVARCHAR,GP.GROUPSTARTDATES,112)=CONVERT(NVARCHAR,[GROUPSALES].GROUPSTARTDATES,112) AND STATUS='完成接團') AS CARNUM4
+                                    ,(SELECT COUNT(CARNO) FROM [TKMK].[dbo].[GROUPSALES] GP WITH(NOLOCK) WHERE CONVERT(NVARCHAR,GP.GROUPSTARTDATES,112)=CONVERT(NVARCHAR,[GROUPSALES].GROUPSTARTDATES,112) AND STATUS='預約接團') AS CARNUM5
+                                    FROM [TKMK].[dbo].[GROUPSALES] WITH(NOLOCK)
                                     WHERE CONVERT(NVARCHAR,GROUPSTARTDATES,112)='{0}'
                                     AND STATUS IN ('預約接團','完成接團')
                                     GROUP BY CONVERT(NVARCHAR,GROUPSTARTDATES,112)
@@ -2644,7 +2644,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -2659,7 +2659,7 @@ namespace TKTEMPS
 
                 sbSql.AppendFormat(@"  
                                     SELECT COUNT([CARNO]) AS NUMS 
-                                    FROM [TKTEMPS].[dbo].[GROUPSALES]
+                                    FROM [TKMK].[dbo].[GROUPSALES]
                                     WHERE [STATUS]='預約接團' AND CONVERT(nvarchar,[CREATEDATES],112)='{0}' 
                                     ", CREATEDATES);
                 sbSql.AppendFormat(@"  ");
@@ -2789,7 +2789,7 @@ namespace TKTEMPS
 
             //20210902密
             Class1 TKID = new Class1();//用new 建立類別實體
-            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
             //資料庫使用者密碼解密
             sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -2854,7 +2854,7 @@ namespace TKTEMPS
                             ,[GROUPENDDATES]
                             ,DATEDIFF(HOUR, CONVERT(DATETIME,[GROUPSTARTDATES]), CONVERT(DATETIME,[GROUPENDDATES])) AS '停留小時'
                             ,DATEDIFF(MINUTE, CONVERT(DATETIME,[GROUPSTARTDATES]), CONVERT(DATETIME,[GROUPENDDATES])) AS '停留分鐘'
-                            FROM [TKTEMPS].[dbo].[GROUPSALES] WITH (NOLOCK) 
+                            FROM [TKMK].[dbo].[GROUPSALES] WITH (NOLOCK) 
                              WHERE CONVERT(NVARCHAR,[PURGROUPSTARTDATES],112)>='{0}' AND CONVERT(NVARCHAR,[PURGROUPSTARTDATES],112)<='{1}'                              
                              AND [STATUS]='完成接團'
                                 {2}
@@ -2871,12 +2871,12 @@ namespace TKTEMPS
 
             SB.AppendFormat(@"    
                             SELECT SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 ) AS '年月'
-                            ,(SELECT ISNULL(SUM(GS.[GUSETNUM]),0) FROM[TKTEMPS].[dbo].[GROUPSALES] GS WITH (NOLOCK) WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '交易筆數'
-                            ,(SELECT ISNULL(SUM(GS.[CARNUM]),0) FROM[TKTEMPS].[dbo].[GROUPSALES] GS WITH (NOLOCK) WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '來車數'
-                            ,(SELECT ISNULL(SUM(GS.[SALESMMONEYS]),0) FROM[TKTEMPS].[dbo].[GROUPSALES] GS  WITH (NOLOCK) WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '團客總金額'
-                            ,(SELECT SUM(ISNULL(TA017,0)) FROM [TK].dbo.POSTA WITH (NOLOCK) WHERE  TA002 IN (SELECT  [TA002] FROM [TKTEMPS].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1')) AND TA001 LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '消費總金額'
-                            ,((SELECT SUM(ISNULL(TA017,0)) FROM [TK].dbo.POSTA WITH (NOLOCK) WHERE  TA002 IN (SELECT  [TA002] FROM [TKTEMPS].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1')) AND TA001 LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%')-(SELECT ISNULL(SUM(GS.[SALESMMONEYS]),0) FROM[TKTEMPS].[dbo].[GROUPSALES] GS WITH (NOLOCK) WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%')) AS '散客總金額'
-                            FROM [TKTEMPS].[dbo].[GROUPSALES] WITH (NOLOCK)
+                            ,(SELECT ISNULL(SUM(GS.[GUSETNUM]),0) FROM[TKMK].[dbo].[GROUPSALES] GS WITH (NOLOCK) WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '交易筆數'
+                            ,(SELECT ISNULL(SUM(GS.[CARNUM]),0) FROM[TKMK].[dbo].[GROUPSALES] GS WITH (NOLOCK) WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '來車數'
+                            ,(SELECT ISNULL(SUM(GS.[SALESMMONEYS]),0) FROM[TKMK].[dbo].[GROUPSALES] GS  WITH (NOLOCK) WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '團客總金額'
+                            ,(SELECT SUM(ISNULL(TA017,0)) FROM [TK].dbo.POSTA WITH (NOLOCK) WHERE  TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1')) AND TA001 LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%') AS '消費總金額'
+                            ,((SELECT SUM(ISNULL(TA017,0)) FROM [TK].dbo.POSTA WITH (NOLOCK) WHERE  TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1')) AND TA001 LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%')-(SELECT ISNULL(SUM(GS.[SALESMMONEYS]),0) FROM[TKMK].[dbo].[GROUPSALES] GS WITH (NOLOCK) WHERE CONVERT(NVARCHAR,GS.[PURGROUPSTARTDATES],112) LIKE SUBSTRING(CONVERT(NVARCHAR,[GROUPSALES].[PURGROUPSTARTDATES],112),1,6 )+'%')) AS '散客總金額'
+                            FROM [TKMK].[dbo].[GROUPSALES] WITH (NOLOCK)
                             WHERE CONVERT(NVARCHAR,[PURGROUPSTARTDATES],112)>='{0}' AND CONVERT(NVARCHAR,[PURGROUPSTARTDATES],112)<='{1}'
                             AND [STATUS]='完成接團'
                             GROUP BY SUBSTRING(CONVERT(NVARCHAR,[PURGROUPSTARTDATES],112),1,6 )
@@ -2922,7 +2922,7 @@ namespace TKTEMPS
 
             //20210902密
             Class1 TKID = new Class1();//用new 建立類別實體
-            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+            SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
             //資料庫使用者密碼解密
             sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -2978,7 +2978,7 @@ namespace TKTEMPS
                             ,CONVERT(varchar(100), [PURGROUPENDDATES],120) AS '預計離開時間'
                             ,[EXCHANGEMONEYS] AS '領券額'
                             ,[ID],[CREATEDATES]
-                            FROM [TKTEMPS].[dbo].[GROUPSALES]
+                            FROM [TKMK].[dbo].[GROUPSALES]
                             WHERE 1=1
                             AND [STATUS]='完成接團 '
                             AND CONVERT(varchar(100), [GROUPSTARTDATES],112)='{0}'
@@ -3005,7 +3005,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -3048,7 +3048,7 @@ namespace TKTEMPS
                                     ,CONVERT(varchar(100), [PURGROUPENDDATES],120) AS '預計離開時間'
                                     ,[EXCHANGEMONEYS] AS '領券額'
                                     ,[ID],[CREATEDATES]
-                                    FROM [TKTEMPS].[dbo].[GROUPSALES]
+                                    FROM [TKMK].[dbo].[GROUPSALES]
                                     WHERE CONVERT(nvarchar,[CREATEDATES],112)='{0}'
                                     AND [STATUS]<>'取消預約'
                                     ORDER BY CONVERT(nvarchar,[CREATEDATES],112),CONVERT(int,[SERNO]) DESC
@@ -3192,7 +3192,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -3210,7 +3210,7 @@ namespace TKTEMPS
                                     [GROUPSALES].[CARCOMPANY] AS '來車公司'
                                     ,[GROUPSALES].[ID]
                                     ,[GROUPCARCOMPANY].PRINTS
-                                    FROM [TKTEMPS].[dbo].[GROUPSALES],[TKTEMPS].dbo.GROUPCARCOMPANY
+                                    FROM [TKMK].[dbo].[GROUPSALES],[TKMK].[dbo].GROUPCARCOMPANY
                                     WHERE 1=1
                                     AND [GROUPSALES].CARCOMPANY=GROUPCARCOMPANY.CARCOMPANY
                                     AND [STATUS]='完成接團 '
@@ -3255,7 +3255,7 @@ namespace TKTEMPS
 
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -3336,12 +3336,12 @@ namespace TKTEMPS
 		                                    SELECT CONVERT(INT,ISNULL(SUM(TB033),0),0)
 		                                    FROM [TK].dbo.POSTA WITH (NOLOCK),[TK].dbo.POSTB WITH (NOLOCK)
 		                                    WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003  AND TA006=TB006  
-		                                    AND TB010  NOT IN (SELECT [ID] FROM [TKTEMPS].[dbo].[GROUPPRODUCT] WHERE [VALID]='Y' AND [SPLITCAL]='Y')              
+		                                    AND TB010  NOT IN (SELECT [ID] FROM [TKMK].[dbo].[GROUPPRODUCT] WHERE [VALID]='Y' AND [SPLITCAL]='Y')              
 		                                    AND TA008=[GROUPSALES].[TA008] 
 		                                    AND TA001=CONVERT(varchar,[GROUPSALES].[GROUPSTARTDATES], 112) 
 		                                    AND TA005>=CONVERT(varchar, [GROUPSALES].[GROUPSTARTDATES],108 )
 
-		                                    AND TA002 IN (SELECT  [TA002] FROM [TKTEMPS].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
+		                                    AND TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
 		                                    )  AS 'SALESMMONEYS'
 		                                    ,
 		                                    (
@@ -3349,7 +3349,7 @@ namespace TKTEMPS
 		                                    FROM 
 		                                    (
 		                                    SELECT [ID],[NAME],[NUM],[MONEYS],[SPLITCAL],[VALID],[SDATES],[EDATES],TB010,SUMTB019
-		                                    FROM [TKTEMPS].[dbo].[GROUPPRODUCT]
+		                                    FROM [TKMK].[dbo].[GROUPPRODUCT]
 		                                    LEFT JOIN 
 		                                    (
 		                                    SELECT TB010,CONVERT(INT,ISNULL(SUM(TB019),0),0) SUMTB019
@@ -3359,7 +3359,7 @@ namespace TKTEMPS
 		                                    AND TA001=CONVERT(varchar,[GROUPSALES].[GROUPSTARTDATES], 112)  
 		                                    AND TA005>=CONVERT(varchar, [GROUPSALES].[GROUPSTARTDATES],108 )
 
-		                                    AND TA002 IN (SELECT  [TA002] FROM [TKTEMPS].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
+		                                    AND TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
 		                                    GROUP BY TB010
 		                                    ) AS TEMP ON TB010=ID
 		                                    WHERE [VALID]='Y' 
@@ -3373,7 +3373,7 @@ namespace TKTEMPS
 		                                    FROM 
 		                                    (
 		                                    SELECT [ID],[NAME],[NUM],[MONEYS],[SPLITCAL],[VALID],[SDATES],[EDATES],TB010,SUMTB019
-		                                    FROM [TKTEMPS].[dbo].[GROUPPRODUCT]
+		                                    FROM [TKMK].[dbo].[GROUPPRODUCT]
 		                                    LEFT JOIN 
 		                                    (
 		                                    SELECT TB010,CONVERT(INT,ISNULL(SUM(TB019),0),0) SUMTB019
@@ -3383,7 +3383,7 @@ namespace TKTEMPS
 		                                    AND TA001=CONVERT(varchar,[GROUPSALES].[CREATEDATES], 112)  
 		                                    AND TA005>=CONVERT(varchar, [GROUPSALES].[CREATEDATES],108 )
 
-		                                    AND TA002 IN (SELECT  [TA002] FROM [TKTEMPS].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
+		                                    AND TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
 		                                    GROUP BY TB010
 		                                    ) AS TEMP ON TB010=ID
 		                                    WHERE [VALID]='Y' 
@@ -3401,13 +3401,13 @@ namespace TKTEMPS
 		                                    AND TA001=CONVERT(varchar,[GROUPSALES].[CREATEDATES], 112)
 		                                    AND TA005>=CONVERT(varchar,[GROUPSALES].[CREATEDATES], 108)
 
-		                                    AND TA002 IN (SELECT  [TA002] FROM [TKTEMPS].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
+		                                    AND TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
 		                                    ) AS 'FINALEXCHANGESALESMMONEYS'
 		                                    ,
 		                                    ISNULL((
 		                                    SELECT  
 		                                    CONVERT(INT,[EXCHANGEMONEYS],0)
-		                                    FROM [TKTEMPS].[dbo].[GROUPEXCHANGEMONEYS]
+		                                    FROM [TKMK].[dbo].[GROUPEXCHANGEMONEYS]
 		                                    WHERE  1=1
 		                                    AND [VALID]='Y'
 		                                    AND [CARKIND]=[GROUPSALES].[CARKIND] 
@@ -3417,7 +3417,7 @@ namespace TKTEMPS
 		                                    ,
 		                                    (
 		                                    SELECT CONVERT(INT,[BASEMONEYS],0)
-		                                    FROM [TKTEMPS].[dbo].[GROUPBASE] 
+		                                    FROM [TKMK].[dbo].[GROUPBASE] 
 		                                    WHERE 1=1
 		                                    AND VALID='Y'
 		                                    AND CONVERT(NVARCHAR,SDATES,112)<=CONVERT(varchar,[GROUPSALES].[GROUPSTARTDATES], 112)
@@ -3432,9 +3432,9 @@ namespace TKTEMPS
 		                                    AND TA001=CONVERT(varchar,[GROUPSALES].[CREATEDATES], 112)
 		                                    AND TA005>=CONVERT(varchar,[GROUPSALES].[CREATEDATES], 108)
 		
-		                                    AND TA002 IN (SELECT  [TA002] FROM [TKTEMPS].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
+		                                    AND TA002 IN (SELECT  [TA002] FROM [TKMK].[dbo].[GROUPSTORES] WHERE KINDNAMES IN ('GROUPSTORES1'))
 		                                    ) AS 'GUSETNUM'
-		                                    FROM [TKTEMPS].[dbo].[GROUPSALES]
+		                                    FROM [TKMK].[dbo].[GROUPSALES]
 		                                    WHERE CONVERT(nvarchar,[CREATEDATES],112)='{0}'
 		                                    --AND [STATUS] IN ('預約接團')
 
@@ -3442,7 +3442,7 @@ namespace TKTEMPS
 	                                    ) AS TEMP2
 	                                    OUTER  APPLY (
 	                                    SELECT TOP 1 [PCT]  AS 'FINALCOMMISSIONPCT'              
-	                                    FROM [TKTEMPS].[dbo].[GROUPPCT]
+	                                    FROM [TKMK].[dbo].[GROUPPCT]
 	                                    WHERE [NAME] = TEMP2.車種
 	                                    AND (FINNALSALESMMONEYS - [PCTMONEYS]) >= 0
 	                                    AND VALID = 'Y'
@@ -3457,7 +3457,7 @@ namespace TKTEMPS
 
 
 
-                                    UPDATE [TKTEMPS].[dbo].[GROUPSALES]
+                                    UPDATE [TKMK].[dbo].[GROUPSALES]
                                     SET 
                                     [EXCHANGEMONEYS]=#TempTable.FINALEXCHANGEMONEYS
                                     ,[EXCHANGETOTALMONEYS]=#TempTable.FINALEXCHANGEMONEYS*#TempTable.車數
@@ -3524,7 +3524,7 @@ namespace TKTEMPS
             {
                 //20210902密
                 Class1 TKID = new Class1();//用new 建立類別實體
-                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbTKMK"].ConnectionString);
 
                 //資料庫使用者密碼解密
                 sqlsb.Password = TKID.Decryption(sqlsb.Password);
@@ -3541,7 +3541,7 @@ namespace TKTEMPS
                                    SELECT 
                                     TOP 1 [CARCOMPANY]
      
-                                    FROM [TKTEMPS].[dbo].[GROUPSALES]
+                                    FROM [TKMK].[dbo].[GROUPSALES]
                                     WHERE [CREATEDATES]<='2023/7/1'
                                     AND [CARNO]  LIKE '%{0}%'
                                     ORDER  BY [CREATEDATES]
